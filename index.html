@@ -2,8 +2,8 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="description" content="Изометрическая прогулка по проспекту Мира во Владикавказе: площадь Ленина, исторические фасады и поездка на трамвае. Игра для компьютера.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <meta name="description" content="Изометрическая прогулка по проспекту Мира во Владикавказе: площадь Ленина, исторические фасады и поездка на трамвае. Игра для компьютера и телефона.">
   <meta name="theme-color" content="#e9eddf"/>
   <title>Площадь Ленина · 2D-прогулка по Владикавказу</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml"/>
@@ -23,12 +23,14 @@
     <aside class="discovery"><span class="discovery-icon">◇</span><div><small>ПОСМОТРИТЕ ВОКРУГ</small><strong id="discovery-title">Арки, сквер и городские истории</strong><span id="discovery-count">Открываем места…</span></div></aside>
     <div id="interact" class="interact" hidden><kbd>E</kbd><div><strong id="interact-title"></strong><span>Осмотреть · или нажмите на значок</span></div></div>
     <div id="tram-panel" class="tram-panel" hidden><span id="tram-status" role="status" aria-live="polite"></span><button id="tram-action"><kbd>E</kbd> <strong id="tram-action-label">Сесть в трамвай</strong></button></div>
+    <button id="touch-menu" aria-label="Меню игры" aria-expanded="false" aria-controls="mobile-options">☰ Меню</button>
+    <div id="touch-controls" aria-label="Сенсорное управление"><div id="move-stick" role="group" aria-label="Джойстик движения: потяните в нужную сторону"><span class="stick-cross" aria-hidden="true">＋</span><span id="stick-knob" aria-hidden="true"></span></div><button id="touch-action" disabled>Подойдите ближе</button></div>
     <div id="toast" role="status" aria-live="polite" hidden></div>
     <footer><div class="controls"><span><kbd>W A S D</kbd> / стрелки — идти</span><span><kbd>Shift</kbd> быстрее</span><span>Колесо — масштаб</span><span><kbd>Q</kbd> ракурс</span><span><kbd>E</kbd> действие / трамвай</span><span><kbd>Esc</kbd> пауза</span></div><div class="credits"><span>Стилизованный фрагмент · окружение уточняется</span><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap</a></div></footer>
     <div id="loading" class="loading" role="status"><span class="spinner"></span><strong>Открываем площадь…</strong><p>Готовим короткую прогулку</p><button id="retry" hidden>Повторить</button></div>
     <dialog id="place-dialog" aria-labelledby="card-title"><button id="card-x" class="close" aria-label="Закрыть карточку">×</button><p id="card-eyebrow" class="eyebrow"></p><h2 id="card-title"></h2><p id="card-body"></p><div class="observe"><small>ДЕТАЛЬ ДЛЯ НАБЛЮДЕНИЯ</small><p id="card-observe"></p></div><a id="card-source" target="_blank" rel="noopener noreferrer" hidden>Источник о месте ↗</a><button id="card-close" class="primary">Продолжить прогулку <span>→</span></button></dialog>
     <dialog id="pause-dialog" aria-labelledby="pause-title"><p class="eyebrow">ГОРОД ПОДОЖДЁТ</p><h2 id="pause-title">Небольшая пауза</h2><p>Прогуляйтесь вокруг гостиницы и найдите отмеченные места.</p><button id="resume" class="primary">Продолжить <span>→</span></button><button id="pause-reset" class="secondary">Вернуться к началу</button></dialog>
-    <div class="facade-actions"><button id="view-toggle" title="Сменить фиксированный ракурс (Q)"><span>↔</span> <span id="view-label">Со стороны площади</span></button><button id="open-facades"><span>▧</span> Конструктор фасадов</button><button id="city-sound" aria-pressed="true">♫ Город: тихий фон</button><a id="open-plan" href="./layout-plan.html">⌖ План проспекта</a></div>
+    <div class="facade-actions" id="mobile-options"><button id="view-toggle" title="Сменить фиксированный ракурс (Q)"><span>↔</span> <span id="view-label">Со стороны площади</span></button><button id="open-facades"><span>▧</span> Конструктор фасадов</button><button id="city-sound" aria-pressed="true">♫ Город: тихий фон</button><a id="open-plan" href="./layout-plan.html">⌖ План проспекта</a></div>
     <dialog id="facade-dialog" aria-labelledby="facade-title">
       <div class="facade-header"><div><p class="eyebrow">МАСТЕРСКАЯ ПРОСПЕКТА</p><h2 id="facade-title">Конструктор фасадов</h2></div><button id="facade-close" class="close" aria-label="Закрыть конструктор без применения">×</button><label class="building-picker">Дом<select id="facade-building"><option value="mira26">Проспект Мира, 26</option><option value="mira28">Проспект Мира, 28</option></select></label></div>
       <div class="facade-workspace">

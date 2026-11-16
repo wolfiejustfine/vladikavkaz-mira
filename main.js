@@ -1,3 +1,4 @@
+import {createTouchControls} from './touch-controls.js';
 import {rotateTramPoint,tramRenderYaw,TRAM_CACHE_LIMIT} from './tram-geometry.js';
 import {PLAYER_SPEED,PLAYER_SPAWN,canBoard,doorsOpen,landingPoint,shouldExit} from './passenger.js';
 import {createCityAudio} from './city-audio.js';
@@ -18,7 +19,8 @@ const camera={x:SPAWN.x-10,y:SPAWN.y-22};
 const entities=[],colliders=[],sprites=new Set(),poiHits=[],drawTimes=[],intervals=[];
 let width=0,height=0,dpr=1,ppm=11,frame=0,lastTime=0,hint=null,toastTimer,readyMs=0;
 let ground,hotel,tram,nearest=null,district,editor,minimap;
-let northHeading=null,ride=null,boardable=null;
+let northHeading=null,ride=null,boardable=null,mobile=null;
+mobile=createTouchControls({enabled:()=>state.ready&&!state.paused&&!ride,onAction:interact});
 const cityAudio=createCityAudio($('city-sound'));
 const fleet=()=>[tramPosition(state.time,-1),tramPosition(state.time,1)];
 const hotelViews=new Map(),facadeDefinitions=new Map();
@@ -41,14 +43,14 @@ function makeEntity(id,x,y,sprite,polygon,solid=true,holes=[]) {
   const e={id,x,y,sprite,polygon,bounds:bounds(polygon)};entities.push(e);sprites.add(sprite);
   if(solid)colliders.push({polygon,holes,bounds:e.bounds});return e;
 }
-function resize(){width=innerWidth;height=innerHeight;dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ppm=(width<1100?9.1:11)*state.zoom;}
+function resize(){width=innerWidth;height=innerHeight;dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ppm=(width<700?6.2:width<1100?9.1:11)*state.zoom;}
 function toScreen(x,y,z=0){const p=project(x-camera.x,y-camera.y,z);return{x:width*.52+p.x*ppm,y:height*.57+p.y*ppm};}
 function spriteRect(e){const p=toScreen(e.x,e.y),s=ppm/e.sprite.ppm;return{x:p.x-e.sprite.anchor[0]*s,y:p.y-e.sprite.anchor[1]*s,w:e.sprite.image.width*s,h:e.sprite.image.height*s};}
 function drawSprite(e,alpha=1){const b=spriteRect(e);if(b.x+b.w<0||b.x>width||b.y+b.h<0||b.y>height)return;ctx.globalAlpha=alpha;ctx.drawImage(e.sprite.image,b.x,b.y,b.w,b.h);ctx.globalAlpha=1;}
 function drawShadow(e){const p=toScreen(e.x,e.y);ctx.fillStyle='#3d594629';ctx.beginPath();ctx.ellipse(p.x+ppm*.7,p.y+ppm*.25,ppm*(e.id.startsWith('tree')?2.5:1.3),ppm*.65,-.2,0,Math.PI*2);ctx.fill();}
 function showToast(text){clearTimeout(toastTimer);$('toast').textContent=text;$('toast').hidden=false;toastTimer=setTimeout(()=>$('toast').hidden=true,2700);}
 function zoomBy(value){state.zoom=clamp(Math.round((state.zoom+value)*100)/100,.7,1.65);resize();$('zoom-label').value=Math.round(state.zoom*100)+'%';$('zoom-in').disabled=state.zoom>=1.65;$('zoom-out').disabled=state.zoom<=.7;}
-function clearInput(){keys.clear();state.walking=false;}
+function clearInput(){keys.clear();mobile?.reset();state.walking=false;}
 function updateDiscovery(){
   $('discovery-count').textContent=`Открыто ${visited.size} из ${POIS.length} мест`;
   $('discovery-title').textContent=visited.size===POIS.length?'Вы познакомились с площадью':'Арки, сквер и городские истории';
@@ -80,10 +82,12 @@ function update(dt){
     state.x=travel.x;state.y=travel.y;state.heading=travel.direction===-1?-travel.yaw:Math.PI-travel.yaw;state.walking=false;
     if(shouldExit(ride,travel))exitTram(travel);
   }else{
-    const h=Number(keys.has('KeyD')||keys.has('ArrowRight'))-Number(keys.has('KeyA')||keys.has('ArrowLeft'));
-    const v=Number(keys.has('KeyS')||keys.has('ArrowDown'))-Number(keys.has('KeyW')||keys.has('ArrowUp'));
+    let h=Number(keys.has('KeyD')||keys.has('ArrowRight'))-Number(keys.has('KeyA')||keys.has('ArrowLeft'));
+    let v=Number(keys.has('KeyS')||keys.has('ArrowDown'))-Number(keys.has('KeyW')||keys.has('ArrowUp'));
+    if(!h&&!v){const stick=mobile.read();h=stick.x;v=stick.y;}
+    const strength=Math.min(1,Math.hypot(h,v));
     const dir=screenDirection(h,v),speed=keys.has('ShiftLeft')||keys.has('ShiftRight')?PLAYER_SPEED.run:PLAYER_SPEED.walk;
-    const next=moveCircle(state,dir.x*speed*dt,dir.y*speed*dt,.48,colliders,LIMITS);
+    const next=moveCircle(state,dir.x*speed*strength*dt,dir.y*speed*strength*dt,.48,colliders,LIMITS);
     const distance=Math.hypot(next.x-state.x,next.y-state.y);state.walking=distance>.0001;
     if(distance>.0001)state.heading=Math.atan2(next.x-state.x,state.y-next.y);
     state.x=next.x;state.y=next.y;if(h)state.facing=Math.sign(h);
@@ -95,6 +99,7 @@ function update(dt){
   if(nearest!==hint){hint=nearest;if(nearest)$('interact-title').textContent=nearest.title;}
   updateTransit();
 }
+function interact(){if(!state.ready||state.paused)return;if(!transitAction()&&nearest)openPlace(nearest);}
 function exitTram(travel){
   const point=landingPoint(travel,colliders);if(!point)return false;
   ride=null;clearInput();Object.assign(state,point);showToast('Остановка «'+travel.stop.name+'». Приятной прогулки!');return true;
@@ -109,7 +114,7 @@ function transitAction(){
   }
   const travel=fleet().find(t=>canBoard(state,t,colliders));if(!travel)return false;
   ride={direction:travel.direction,boardedStop:travel.stop.id,exitRequested:false};clearInput();state.x=travel.x;state.y=travel.y;
-  showToast('Вы в трамвае. E — выйти или заказать следующую остановку');updateTransit();return true;
+  showToast(document.documentElement.classList.contains('touch-ui')?'Вы в трамвае. Кнопка справа — выход на остановке':'Вы в трамвае. E — выйти или заказать следующую остановку');updateTransit();return true;
 }
 function updateTransit(){
   boardable=ride?null:fleet().find(t=>canBoard(state,t,colliders));
@@ -121,6 +126,7 @@ function updateTransit(){
   }else if(boardable){status=boardable.stop.name+' · '+(boardable.direction===-1?'в сторону Кирова':'к площади Ленина');action='Сесть в трамвай';}
   if($('tram-status').textContent!==status)$('tram-status').textContent=status;
   if($('tram-action-label').textContent!==action)$('tram-action-label').textContent=action;
+  mobile.setAction(ride?(doorsOpen(tramPosition(state.time,ride.direction))?'Выйти':ride.exitRequested?'Отменить выход':'Следующая остановка'):boardable?'Сесть':nearest?'Осмотреть':'Подойдите ближе',!!ride||!!boardable||!!nearest);
 }
 function personEntity(id,x,y,color,time,moving=false,facing=1){return{id,x,y,bounds:bounds(rect(x,y,.7,.7)),person:{color,time,moving,facing}};}
 function drawPersonEntity(e,ghost=false){const p=toScreen(e.x,e.y);ctx.globalAlpha=ghost?.58:1;drawPerson(ctx,p.x,p.y,ppm*1.12,e.person.time,e.person.moving,e.person.color,e.person.facing,ghost);ctx.globalAlpha=1;}
@@ -173,7 +179,7 @@ let lastRender={covered:false,drawables:0};
 function tick(now){
   const delta=lastTime?now-lastTime:16.67;lastTime=now;
   if(delta<150){intervals.push(delta);if(intervals.length>180)intervals.shift();}
-  update(Math.min(delta/1000,.04));cityAudio.setQuiet(state.paused||document.hidden);cityAudio.updateTrams(state,fleet(),state.time);
+  update(Math.min(delta/1000,.04));mobile.setPaused(state.paused);cityAudio.setQuiet(state.paused||document.hidden);cityAudio.updateTrams(state,fleet(),state.time);
   const before=performance.now();lastRender=render();minimap?.draw(state,visited,now);drawTimes.push(performance.now()-before);if(drawTimes.length>180)drawTimes.shift();
   if(++frame%30===0&&!$('diagnostics').hidden){const s=snapshot();$('diagnostics').textContent=`Canvas 2D · один участок\n${s.fps} FPS · рисование p95 ${s.drawMsP95} мс\nОбъектов ${s.drawables} · спрайтов ${s.spriteCount}\nРастр + маски ≈ ${s.rasterMiB} МиБ\nx ${s.player.x} / y ${s.player.y}\nF3 — скрыть`;}
   requestAnimationFrame(tick);
@@ -270,7 +276,7 @@ window.addEventListener('keydown',e=>{
   if($('place-dialog').open||$('pause-dialog').open||$('facade-dialog').open)return;
   const controlled=['KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowLeft','ArrowDown','ArrowRight','ShiftLeft','ShiftRight','KeyE','KeyR','KeyQ','Escape','Equal','Minus'];
   if(!controlled.includes(e.code))return;e.preventDefault();keys.add(e.code);if(e.repeat)return;
-  if(e.code==='KeyE'&&!transitAction()&&nearest)openPlace(nearest);
+  if(e.code==='KeyE')interact();
   if(e.code==='KeyQ')changeView(-getView());if(e.code==='KeyR')reset();if(e.code==='Escape')pause();if(e.code==='Equal')zoomBy(.1);if(e.code==='Minus')zoomBy(-.1);
 });
 window.addEventListener('keyup',e=>keys.delete(e.code));

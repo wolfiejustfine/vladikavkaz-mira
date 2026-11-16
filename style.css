@@ -26,3 +26,32 @@
 .tram-panel{position:fixed;left:50%;bottom:94px;transform:translateX(-50%);display:grid;gap:8px;min-width:270px;max-width:calc(100vw - 420px);padding:13px 18px;background:#f9f6e9ed;border:1px solid #fff;border-radius:16px;box-shadow:0 8px 30px #36584e1a;color:#36584e;text-align:center;z-index:5}.tram-panel[hidden]{display:none}.tram-panel>span{font-size:12px}.tram-panel button{border:0;border-radius:9px;padding:10px 14px;background:#36584e;color:#fff3d3;cursor:pointer;font:inherit}.tram-panel kbd{margin-right:8px}.tram-panel button:focus-visible{outline:3px solid #b28c48;outline-offset:3px}#city-sound{font-size:12px!important}@media(max-width:700px){.tram-panel{max-width:calc(100vw - 28px);min-width:240px;bottom:140px}}
 
 .tram-panel kbd{color:inherit}
+
+#touch-controls,#touch-menu{display:none}
+.touch-ui body{overscroll-behavior:none}
+.touch-ui #touch-controls{display:block;position:fixed;inset:0;pointer-events:none;z-index:8;user-select:none;-webkit-user-select:none}
+.touch-ui #move-stick{position:absolute;left:max(20px,env(safe-area-inset-left));bottom:calc(28px + env(safe-area-inset-bottom));width:126px;height:126px;border-radius:50%;background:#f9f6e9aa;border:2px solid #fff9;box-shadow:0 4px 24px #203e3520;touch-action:none;pointer-events:auto;display:grid;place-items:center}
+#stick-knob{position:absolute;width:52px;height:52px;border-radius:50%;background:#36584ee6;border:2px solid #e6eac8;box-shadow:0 3px 10px #284a4033;pointer-events:none}
+.stick-cross{font-size:90px;color:#36584e26;line-height:1;pointer-events:none}
+.touch-ui #touch-action{position:absolute;right:max(22px,env(safe-area-inset-right));bottom:calc(43px + env(safe-area-inset-bottom));width:104px;min-height:84px;padding:12px;border-radius:28px;background:#36584e;color:#fff5db;border:2px solid #fff9;font:bold 13px/1.3 Arial;box-shadow:0 5px 25px #203e3533;touch-action:manipulation;pointer-events:auto}
+.touch-ui #touch-action:disabled{opacity:.58;background:#e8e8d7;color:#536b58}
+.touch-ui .controls,.touch-ui .discovery{display:none}
+.touch-ui .interact{bottom:calc(173px + env(safe-area-inset-bottom));max-width:calc(100vw - 28px);min-width:0;padding:10px 16px;text-align:center}
+.touch-ui .interact kbd,.touch-ui .interact span{display:none}
+.touch-ui .tram-panel{bottom:calc(173px + env(safe-area-inset-bottom));min-width:0;width:max-content;max-width:calc(100vw - 28px);padding:10px 16px}
+.touch-ui #tram-action{display:none}
+.touch-ui .minimap{bottom:auto;top:180px;right:14px;width:104px}
+.touch-ui #minimap-location{font-size:8px}
+.touch-ui .facade-actions{display:none;top:64px;left:auto;right:12px;z-index:12;padding:12px;border:1px solid #d0d7c1;border-radius:14px;background:#f5f4e8;box-shadow:0 6px 30px #203e3530;max-height:calc(100dvh - 90px);overflow:auto}
+.touch-ui.mobile-menu-open .facade-actions{display:flex}
+.touch-ui .facade-actions button,.touch-ui #open-plan{min-height:44px;width:100%;text-align:left}
+.touch-ui #touch-menu{display:block;position:fixed;top:calc(14px + env(safe-area-inset-top));right:max(14px,env(safe-area-inset-right));z-index:13;border:1px solid #c8d0b9;border-radius:10px;padding:10px 13px;background:#f9f6e9ed;color:#36584e;min-height:44px}
+.touch-ui .topbar{padding:calc(16px + env(safe-area-inset-top)) 14px 8px;justify-content:flex-start}
+.touch-ui .compare,.touch-ui .mode{display:none}
+.touch-ui .brand{font-size:12px}.touch-ui .brand svg{width:26px}.touch-ui .brand small{font-size:6px}
+.touch-ui .place-heading{top:calc(69px + env(safe-area-inset-top));left:16px}.touch-ui .place-heading h1{font-size:24px;margin:4px 0}.touch-ui .place-heading p{display:none}.touch-ui .place-heading>span{font-size:10px}
+.touch-ui .tools{top:calc(121px + env(safe-area-inset-top));right:12px;flex-direction:row;padding:2px;border-radius:12px;gap:1px}.touch-ui .tools button{width:44px;height:44px}.touch-ui .tools output,.touch-ui .tools i{display:none}
+.touch-ui footer{padding:0 12px calc(6px + env(safe-area-inset-bottom))}.touch-ui .credits{margin:0;font-size:7px}.touch-ui .credits>span{max-width:65%}
+.touch-ui #toast{top:calc(68px + env(safe-area-inset-top));z-index:15;font-size:11px;max-width:90vw}
+.touch-ui dialog{max-height:calc(100dvh - 30px);overflow:auto;padding:24px}
+@media (orientation:landscape) and (max-height:550px){.touch-ui .place-heading{top:65px}.touch-ui .place-heading>span{display:none}.touch-ui .tools{top:70px}.touch-ui .minimap{top:130px;width:82px}.touch-ui #minimap-location{display:none}.touch-ui #move-stick{width:110px;height:110px;bottom:20px}.touch-ui #touch-action{bottom:30px;min-height:75px}.touch-ui .interact,.touch-ui .tram-panel{bottom:24px;max-width:calc(100vw - 320px)}.touch-ui .facade-actions{top:62px}.touch-ui #toast{top:14px;max-width:45vw}}
