@@ -1,0 +1,29 @@
+{
+  "reviewed": "2026-11-15",
+  "usage": "Visual references only; no photographs or map imagery shipped. Historical photos do not establish current conditions. Planting, dimensions and individual furniture positions are approximate.",
+  "photos": [
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира.jpg",
+      "author": "Олег Мар",
+      "date": "2017-01-29",
+      "license": "CC-BY-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "observed": "Mature pruned deciduous trees with whitewashed trunks; curved wooden benches and low clipped planting."
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Prospekt_Mira_Vladikavkaz.JPG",
+      "author": "Акутагава",
+      "date": "2010-05-11",
+      "license": "CC-BY-SA-3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "observed": "Leafy crowns, single classical lanterns, ornate bench supports, paved recesses beside central path."
+    }
+  ],
+  "mapReferences": "User-supplied 2GIS screenshots, especially 03–08 and 11–13: two planting strips, central path, bench rhythm and three pairs of tram stop locations.",
+  "approximations": [
+    "Flower species and 22 flowerbed positions are authored, not individually verified.",
+    "Stop poles, nameplates and paved pads are schematic; no shelter design is asserted.",
+    "Model covers the existing avenue fragment, not newly reconstructed southern blocks.",
+    "Summer foliage is interpreted using summer and winter reference photos."
+  ]
+}

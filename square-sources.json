@@ -1,0 +1,61 @@
+{
+  "reviewed": "2026-11-15",
+  "renderer": "square-art.js",
+  "layout": "landscape.js",
+  "usage": "Photographs and map screenshots are visual references only, not runtime textures. Sculptures are simplified original Canvas drawings. Dimensions, planting and furniture placement are estimates, not a measured survey or a claim about the current condition.",
+  "references": [
+    {
+      "id": "lenin-2020",
+      "title": "Памятник Ленина во Владикавказе",
+      "url": "https://commons.wikimedia.org/wiki/File:Памятник_Ленина_во_Владикавказе.jpg",
+      "author": "Игорь Улитин",
+      "captureDate": "2020-10-28",
+      "license": "CC-BY-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "observed": "Standing coat silhouette, hand at chest and lowered cap; dark cylindrical pedestal with round mouldings, square stepped platform."
+    },
+    {
+      "id": "soslan-2008",
+      "title": "Vladikavkaz Pamiatnik David-Soslan",
+      "url": "https://commons.wikimedia.org/wiki/File:Vladikavkaz_Pamiatnik_David-Soslan.JPG",
+      "author": "Os-Bagatar",
+      "captureDate": "2008-08-25",
+      "license": "CC-BY-SA-3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "observed": "Soslan's raised knee and arm, decorated cup, flared stone stem, sculptural spouts, round reddish stone basin and working water jets; slatted benches behind."
+    },
+    {
+      "id": "soslan-undated",
+      "title": "Памятник нарту Сослану на проспекте Мира",
+      "url": "https://commons.wikimedia.org/wiki/File:Памятник_нарту_Сослану_на_проспекте_Мира.jpg",
+      "author": "Rost.galis",
+      "captureDate": null,
+      "license": "CC-BY-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "dateNote": "Uploaded for Wiki Loves Monuments 2018; the displayed 1899 camera date is unusable and is not treated as the capture date.",
+      "observed": "Basin-to-person proportions, bronze patina, stone rim, wooden benches with metal arms, trimmed hedges and paving bands."
+    },
+    {
+      "id": "user-2gis",
+      "title": "Пользовательские ракурсы 2ГИС: 02, 09, 10 и общий план",
+      "provider": "2ГИС",
+      "usage": "Private visual references, not redistributed in the game.",
+      "observed": "Monument north of fountain; northern U-shaped lawn, two planted side strips, narrow central bed and curved southern lawn. Tree counts and individual bench positions remain approximate."
+    }
+  ],
+  "estimatedDimensionsMetres": {
+    "monumentPlatform": [10.5, 8.6],
+    "monumentHeight": 8.85,
+    "fountainDiameter": 8.2,
+    "fountainHeight": 6.65,
+    "benchLength": 2.6,
+    "benchSeatHeight": 0.48,
+    "hedgeHeightIncludingCurb": 1.03
+  },
+  "retainedGeography": {
+    "square": "way/165503848",
+    "fountainWalk": "way/178603329",
+    "monumentAnchor": [10.15, 53.3],
+    "fountainCentre": [15.6425, 101.2575]
+  }
+}

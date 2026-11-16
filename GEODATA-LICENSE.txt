@@ -1,0 +1,16 @@
+This directory contains derived OpenStreetMap data.
+
+Copyright: OpenStreetMap and contributors
+Attribution: https://www.openstreetmap.org/copyright
+License: Open Database License (ODbL) 1.0
+License text: https://opendatacommons.org/licenses/odbl/1-0/
+
+Source identity, retrieval time and snapshot checksum are recorded in district.json
+and district-report.json. district.geojson uses WGS84 longitude/latitude.
+district.json uses the documented local metre coordinates and is not GeoJSON.
+
+Heights and widths marked as estimates or derived values are assumptions added
+by this project's conversion pipeline. They are not measurements from OSM.
+Terrain, river-bank and bridge elevations have not been surveyed by this project.
+
+This license statement applies to these geographic datasets, not the game code.

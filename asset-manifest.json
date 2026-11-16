@@ -1,0 +1,114 @@
+{
+  "status": "prototype",
+  "view": {
+    "azimuthDegrees": 45,
+    "elevationDegrees": 30
+  },
+  "hotel": {
+    "file": "alexandrovsky.webp",
+    "bytes": 50570,
+    "sha256": "48377c1a7330a102ce71ecc39f7a58cbe6ad62cdd056001902c5696b57a960a3",
+    "source": "assets/blender/alexandrovsky.blend",
+    "provenance": "Existing original project model rendered offline. See detail-sources.json for its reference history."
+  },
+  "environment": {
+    "source": "art.js",
+    "provenance": "Original procedural Canvas drawings. Neighbouring facades, landscaping and tram are stylised approximations.",
+    "squareRenderer": "square-art.js",
+    "squareReferences": "square-sources.json",
+    "alleyReferences": "alley-sources.json",
+    "tramReferences": "tram-sources.json",
+    "tramRenderer": "tram-art.js"
+  },
+  "geography": {
+    "source": "district.json",
+    "license": "ODbL-1.0",
+    "attribution": "OpenStreetMap contributors",
+    "url": "https://www.openstreetmap.org/copyright"
+  },
+  "hotelViews": [
+    {
+      "file": "alexandrovsky.webp",
+      "bytes": 50570,
+      "sha256": "48377c1a7330a102ce71ecc39f7a58cbe6ad62cdd056001902c5696b57a960a3",
+      "azimuthDegrees": 45
+    },
+    {
+      "file": "alexandrovsky-sw.webp",
+      "bytes": 32798,
+      "sha256": "1b4b6a722eda52ade75f959a45f2aed69b0f38cb74a150ea7b888c918b2134ef",
+      "azimuthDegrees": -45
+    }
+  ],
+  "facades": {
+    "buildings": [
+      "mira26",
+      "mira28",
+      "mira30",
+      "mira32",
+      "mira34",
+      "mira36",
+      "mira38",
+      "mira40",
+      "mira31",
+      "mira33",
+      "mira35",
+      "mira37",
+      "mira39",
+      "mira41",
+      "mira43",
+      "mira45",
+      "mira47",
+      "mira49",
+      "mira42",
+      "mira44",
+      "mira46",
+      "mira48",
+      "mira50",
+      "mira52",
+      "mira51",
+      "mira53",
+      "mira54",
+      "mira55",
+      "theatre",
+      "officers"
+    ],
+    "source": "facades.json",
+    "renderer": [
+      "facades.js",
+      "facade-landmarks.js",
+      "facade-west.js",
+      "facade-northwest.js",
+      "facade-dzhanaeva.js",
+      "facade-artisan.js",
+      "facade-nikitina.js",
+      "facade-east-north.js",
+      "facade-petrovsky.js",
+      "facade-kirova.js",
+      "facade-square.js"
+    ],
+    "provenance": "Original procedural drawings informed by Rartat and Bok photos on Wikimedia Commons (CC-BY-SA-4.0, 2016/2020/2022/2023). Individual links in facades.json. No photographic textures. Nos. 51/53/54/55 complete the northern avenue to Kirova. Exact outlines are retained, including the inner courtyard of 54; dated source photos and approximations are documented in the catalog. Heights and rear elevations estimated. Nos. 34/36 subdivide shared way/943235071; their internal boundary is estimated, not separately surveyed. No. 31 matches an unaddressed footprint beside hotel 29. No. 33 is an estimated southern subdivision of unaddressed way/323444825; the northern remainder is now attributed to No. 35; both preserve the earlier estimated subdivision. No. 37 uses exact way/323443617; its two photographic frontages have an estimated 54/46 width ratio. Nos. 39/41 retain their individual footprints; photo-based visual heights show three floors at 39 and one storey at 41. No. 41 has two street elevations and its mapped chamfered entrance. Nos. 47/49 retain their exact separate outlines and mapped chamfers; references from 2020 and 2022. The north-facing corner at 47 is inspected in the editor. Nos. 43/45 retain exact source footprints and use 2020 facade references; No. 45 has an approximate decorated chamfer based on the partially visible corner. Nos. 42/44/46/48 retain four separate footprints. Reference cross-addresses match 42 to Dzhanaeva 19, 44 to Mayakovskogo 22, and historical 48 to Nikitina 22 (way/323240653), not the separate five-storey Dom Mody way/202260343. No. 50 is Dom Mody way/202260343, source address 48 matched to 50 by the 2020 photo; five photo-based storeys and the original outline retained. No. 52 uses exact way/332189281 with front, southern chamfer and Petrovsky side based on 2020/2022 photos. Nos. 38/40 retain their separate source footprints, including courtyard recesses."
+  },
+  "navigation": {
+    "source": "avenue-data.js",
+    "generator": "scripts/prepare-isometric2d.py",
+    "license": "ODbL-1.0",
+    "minimap": "minimap.js",
+    "landscape": "landscape.js",
+    "note": "OSM rail, park, central promenade and square coordinates. 13 user-supplied 2GIS views (2026-11-15) informed original procedural landscaping; no 2GIS imagery, meshes or business database included. Path widths, transverse connectors, planting and furniture are approximate. Fountain centre inferred from OSM circular footway, basin size estimated."
+  },
+  "elevations": {
+    "catalog": "facades.json",
+    "metrics": "elevation.js",
+    "review": "docs/mira-height-audit.md",
+    "note": "30 facade compositions checked against photographs; the assembly is a labelled reconstruction, its front checked against an archival view and its side against 2022 photos. Cornice heights remain visual estimates, not surveyed heights. Context buildings use explicit source levels when available; untagged storeys remain provisional."
+  },
+  "layout": {
+    "source": "district.json",
+    "mainBuildings": 32,
+    "contextBuildings": 23,
+    "plan": "layout-plan.html",
+    "measurements": "layout-metrics.js",
+    "note": "Exact source outlines except two documented shared-footprint subdivisions. Source road widths are estimates in world metres. Additional corner and rear buildings checked against user 2GIS views; their heights and facade details remain approximate."
+  }
+}

@@ -1,0 +1,2851 @@
+{
+  "origin": [
+    -108,
+    -672
+  ],
+  "buildings": [
+    {
+      "id": "mira54",
+      "osmId": "relation/4851706",
+      "name": "54",
+      "polygon": [
+        [
+          3.206,
+          -432.657
+        ],
+        [
+          7.052,
+          -401.929
+        ],
+        [
+          23.652,
+          -404.45
+        ],
+        [
+          35.388,
+          -406.372
+        ],
+        [
+          46.642,
+          -408.005
+        ],
+        [
+          41.516,
+          -440.744
+        ],
+        [
+          5.161,
+          -435.59
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/relation/4851706",
+      "holes": [
+        [
+          [
+            21.737,
+            -425.625
+          ],
+          [
+            36.374,
+            -427.469
+          ],
+          [
+            37.824,
+            -416.048
+          ],
+          [
+            23.188,
+            -414.204
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "theatre",
+      "osmId": "way/165503117",
+      "name": "Русский академический театр им. Е. Вахтангова",
+      "polygon": [
+        [
+          -107.855,
+          48.586
+        ],
+        [
+          -106.747,
+          60.35
+        ],
+        [
+          -89.338,
+          59.062
+        ],
+        [
+          -88.784,
+          65.039
+        ],
+        [
+          -98.532,
+          65.972
+        ],
+        [
+          -97.562,
+          77.526
+        ],
+        [
+          -65.785,
+          74.538
+        ],
+        [
+          -30.348,
+          70.806
+        ],
+        [
+          -26.314,
+          68.296
+        ],
+        [
+          -30.681,
+          39.122
+        ],
+        [
+          -34.284,
+          37.656
+        ],
+        [
+          -72.304,
+          40.777
+        ],
+        [
+          -71.945,
+          45.076
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "levels-derived",
+        "assumed": true,
+        "levels": 3,
+        "assumedFloorMeters": 3.2,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/165503117"
+    },
+    {
+      "id": "hotel",
+      "osmId": "way/165504111",
+      "name": "Александровский",
+      "polygon": [
+        [
+          -16.108,
+          -13.591
+        ],
+        [
+          -14.487,
+          0.473
+        ],
+        [
+          -12.335,
+          17.448
+        ],
+        [
+          10.126,
+          15.105
+        ],
+        [
+          13.305,
+          13.383
+        ],
+        [
+          14.788,
+          11.105
+        ],
+        [
+          12.466,
+          -17.234
+        ],
+        [
+          -2.351,
+          -15.024
+        ]
+      ],
+      "height": {
+        "meters": 12.8,
+        "minMeters": 0,
+        "method": "levels-derived",
+        "assumed": true,
+        "levels": 4,
+        "assumedFloorMeters": 3.2,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/165504111"
+    },
+    {
+      "id": "mira55",
+      "osmId": "way/202259074",
+      "name": "55/36",
+      "polygon": [
+        [
+          -59.75,
+          -424.937
+        ],
+        [
+          -57.549,
+          -413.684
+        ],
+        [
+          -47.134,
+          -415.605
+        ],
+        [
+          -44.543,
+          -394.298
+        ],
+        [
+          -34.153,
+          -395.753
+        ],
+        [
+          -31.83,
+          -395.564
+        ],
+        [
+          -35.048,
+          -421.737
+        ],
+        [
+          -36.206,
+          -425.404
+        ],
+        [
+          -38.83,
+          -427.803
+        ],
+        [
+          -42.106,
+          -428.237
+        ]
+      ],
+      "height": {
+        "meters": 6.4,
+        "minMeters": 0,
+        "method": "levels-derived",
+        "assumed": true,
+        "levels": 2,
+        "assumedFloorMeters": 3.2,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/202259074"
+    },
+    {
+      "id": "mira50",
+      "osmId": "way/202260343",
+      "name": "Дом Моды",
+      "polygon": [
+        [
+          23.473,
+          -365.868
+        ],
+        [
+          24.589,
+          -357.891
+        ],
+        [
+          28.794,
+          -328.018
+        ],
+        [
+          41.385,
+          -329.784
+        ],
+        [
+          36.064,
+          -367.634
+        ]
+      ],
+      "height": {
+        "meters": 16,
+        "minMeters": 0,
+        "method": "levels-derived",
+        "assumed": true,
+        "levels": 5,
+        "assumedFloorMeters": 3.2,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/202260343",
+      "placement": {
+        "method": "reference-address-match",
+        "sourceAddress": "проспект Мира, 48",
+        "displayAddress": "проспект Мира, 50",
+        "note": "Source labels Dom Mody as 48; Rartat photo 2020-01-17 and address references identify it as 50. Original footprint and source tags retained."
+      }
+    },
+    {
+      "id": "mira49",
+      "osmId": "way/269614976",
+      "name": "49",
+      "polygon": [
+        [
+          -38.457,
+          -320.831
+        ],
+        [
+          -37.186,
+          -312.11
+        ],
+        [
+          -27.097,
+          -313.843
+        ],
+        [
+          -24.114,
+          -317.909
+        ],
+        [
+          -26.542,
+          -336.873
+        ],
+        [
+          -37.764,
+          -335.429
+        ],
+        [
+          -36.729,
+          -327.919
+        ],
+        [
+          -36.028,
+          -321.131
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/269614976"
+    },
+    {
+      "id": "mira26",
+      "osmId": "way/269615186",
+      "name": "26",
+      "polygon": [
+        [
+          61.007,
+          5.54
+        ],
+        [
+          65.921,
+          30.458
+        ],
+        [
+          79.809,
+          28.248
+        ],
+        [
+          76.704,
+          16.239
+        ],
+        [
+          75.954,
+          10.962
+        ],
+        [
+          74.406,
+          3.285
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/269615186"
+    },
+    {
+      "id": "mira44",
+      "osmId": "way/269617706",
+      "name": "22",
+      "polygon": [
+        [
+          28.516,
+          -248.064
+        ],
+        [
+          29.494,
+          -239.265
+        ],
+        [
+          31.172,
+          -227.401
+        ],
+        [
+          42.386,
+          -229.211
+        ],
+        [
+          40.708,
+          -240.798
+        ],
+        [
+          50.52,
+          -243.031
+        ],
+        [
+          49.672,
+          -252.396
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/269617706",
+      "placement": {
+        "method": "reference-address-match",
+        "note": "Historical avenue frontage matched by cross-street address and adjacency; exact source outline retained. No. 48 here is the two-storey Nikitina 22 frontage, not the separate five-storey Dom Mody."
+      }
+    },
+    {
+      "id": "mira48",
+      "osmId": "way/323240653",
+      "name": "22",
+      "polygon": [
+        [
+          18.484,
+          -306.966
+        ],
+        [
+          22.119,
+          -287.291
+        ],
+        [
+          31.695,
+          -289.046
+        ],
+        [
+          30,
+          -298.234
+        ],
+        [
+          53.177,
+          -302.555
+        ],
+        [
+          51.205,
+          -312.965
+        ]
+      ],
+      "height": {
+        "meters": 6.4,
+        "minMeters": 0,
+        "method": "levels-derived",
+        "assumed": true,
+        "levels": 2,
+        "assumedFloorMeters": 3.2,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/323240653",
+      "placement": {
+        "method": "reference-address-match",
+        "note": "Historical avenue frontage matched by cross-street address and adjacency; exact source outline retained. No. 48 here is the two-storey Nikitina 22 frontage, not the separate five-storey Dom Mody."
+      }
+    },
+    {
+      "id": "mira46",
+      "osmId": "way/323240658",
+      "name": "46",
+      "polygon": [
+        [
+          21.296,
+          -286.902
+        ],
+        [
+          25.175,
+          -264.539
+        ],
+        [
+          93.722,
+          -276.348
+        ],
+        [
+          91.815,
+          -287.335
+        ],
+        [
+          35.346,
+          -277.604
+        ],
+        [
+          33.373,
+          -288.98
+        ]
+      ],
+      "height": {
+        "meters": 6.4,
+        "minMeters": 0,
+        "method": "levels-derived",
+        "assumed": true,
+        "levels": 2,
+        "assumedFloorMeters": 3.2,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/323240658"
+    },
+    {
+      "id": "mira39",
+      "osmId": "way/323443252",
+      "name": "39",
+      "polygon": [
+        [
+          -38.9,
+          -174.255
+        ],
+        [
+          -35.298,
+          -155.569
+        ],
+        [
+          -24.777,
+          -157.535
+        ],
+        [
+          -21.64,
+          -137.371
+        ],
+        [
+          -20.474,
+          -129.873
+        ],
+        [
+          -2.17,
+          -132.705
+        ],
+        [
+          -9.186,
+          -177.865
+        ],
+        [
+          -12.593,
+          -179.564
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/323443252"
+    },
+    {
+      "id": "mira37",
+      "osmId": "way/323443617",
+      "name": "37",
+      "polygon": [
+        [
+          -43.31,
+          -127.718
+        ],
+        [
+          -42.3,
+          -120.43
+        ],
+        [
+          -23.506,
+          -123.029
+        ],
+        [
+          -21.013,
+          -105.099
+        ],
+        [
+          -16.025,
+          -105.799
+        ],
+        [
+          -14.672,
+          -96.078
+        ],
+        [
+          -39.13,
+          -92.69
+        ],
+        [
+          -37.484,
+          -80.847
+        ],
+        [
+          2.565,
+          -86.379
+        ],
+        [
+          -2.17,
+          -132.705
+        ],
+        [
+          -20.474,
+          -129.873
+        ],
+        [
+          -21.64,
+          -137.371
+        ],
+        [
+          -31.876,
+          -135.994
+        ],
+        [
+          -30.963,
+          -129.417
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/323443617"
+    },
+    {
+      "id": "mira40",
+      "osmId": "way/323444824",
+      "name": "40",
+      "polygon": [
+        [
+          35.736,
+          -176.986
+        ],
+        [
+          40.576,
+          -142.436
+        ],
+        [
+          77.202,
+          -148.691
+        ],
+        [
+          76.028,
+          -156.212
+        ],
+        [
+          58.09,
+          -153.634
+        ],
+        [
+          53.926,
+          -180.164
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/323444824"
+    },
+    {
+      "id": "mira33",
+      "osmId": "way/323444825",
+      "name": "Проспект Мира, 33",
+      "polygon": [
+        [
+          -35.056,
+          -46.808
+        ],
+        [
+          -32.823,
+          -31.289
+        ],
+        [
+          -5.325,
+          -34.721
+        ],
+        [
+          9.499,
+          -36.942
+        ],
+        [
+          6.3375,
+          -51.6455
+        ],
+        [
+          -10.451,
+          -50.33
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/323444825",
+      "placement": {
+        "method": "estimated-subdivision",
+        "parentOsmId": "way/323444825",
+        "frontSplit": 0.5,
+        "part": "south",
+        "note": "Unaddressed shared source outline; frontage assignment and internal division estimated from neighboring facades. Not cadastral boundaries."
+      }
+    },
+    {
+      "id": "mira35",
+      "osmId": "way/323444825",
+      "name": "Проспект Мира, 35",
+      "polygon": [
+        [
+          -51.788,
+          -59.718
+        ],
+        [
+          -44.633,
+          -31.489
+        ],
+        [
+          -35.383,
+          -33.677
+        ],
+        [
+          -37.192,
+          -44.587
+        ],
+        [
+          -39.906,
+          -44.253
+        ],
+        [
+          -39.987,
+          -48.508
+        ],
+        [
+          -29.905,
+          -50.341
+        ],
+        [
+          -30.46,
+          -53.385
+        ],
+        [
+          -14.779,
+          -56.218
+        ],
+        [
+          -13.866,
+          -51.207
+        ],
+        [
+          -11.038,
+          -51.718
+        ],
+        [
+          -10.451,
+          -50.33
+        ],
+        [
+          6.3375,
+          -51.6455
+        ],
+        [
+          3.176,
+          -66.349
+        ],
+        [
+          1.081,
+          -68.204
+        ],
+        [
+          -1.486,
+          -69.126
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/323444825",
+      "placement": {
+        "method": "estimated-subdivision",
+        "parentOsmId": "way/323444825",
+        "frontSplit": 0.5,
+        "part": "north",
+        "note": "Unaddressed shared source outline; frontage assignment and internal division estimated from neighboring facades. Not cadastral boundaries."
+      }
+    },
+    {
+      "id": "mira41",
+      "osmId": "way/323444830",
+      "name": "41/17",
+      "polygon": [
+        [
+          -56.666,
+          -206.294
+        ],
+        [
+          -54.164,
+          -191.452
+        ],
+        [
+          -11.386,
+          -198.617
+        ],
+        [
+          -8.909,
+          -201.194
+        ],
+        [
+          -11.997,
+          -220.98
+        ],
+        [
+          -23.105,
+          -219.058
+        ],
+        [
+          -21.679,
+          -211.948
+        ],
+        [
+          -29.356,
+          -210.582
+        ],
+        [
+          -28.598,
+          -209.071
+        ],
+        [
+          -43.977,
+          -206.505
+        ],
+        [
+          -43.146,
+          -201.573
+        ],
+        [
+          -48.761,
+          -200.629
+        ],
+        [
+          -49.91,
+          -207.427
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/323444830"
+    },
+    {
+      "id": "annex",
+      "osmId": "way/323445842",
+      "name": "",
+      "polygon": [
+        [
+          -36.491,
+          -12.936
+        ],
+        [
+          -32.278,
+          14.282
+        ],
+        [
+          -30.086,
+          17.293
+        ],
+        [
+          -26.981,
+          19.47
+        ],
+        [
+          -12.335,
+          17.448
+        ],
+        [
+          -14.487,
+          0.473
+        ],
+        [
+          -21.487,
+          1.751
+        ],
+        [
+          -23.109,
+          -8.714
+        ],
+        [
+          -17.225,
+          -9.614
+        ],
+        [
+          -18.17,
+          -15.757
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/323445842"
+    },
+    {
+      "id": "mira47",
+      "osmId": "way/329527257",
+      "name": "47",
+      "polygon": [
+        [
+          -57.593,
+          -295.614
+        ],
+        [
+          -57.512,
+          -295.058
+        ],
+        [
+          -55.678,
+          -283.216
+        ],
+        [
+          -53.82,
+          -283.504
+        ],
+        [
+          -39.851,
+          -285.637
+        ],
+        [
+          -39.558,
+          -283.748
+        ],
+        [
+          -38.743,
+          -278.438
+        ],
+        [
+          -37.928,
+          -273.15
+        ],
+        [
+          -20.048,
+          -275.705
+        ],
+        [
+          -22.932,
+          -298.946
+        ],
+        [
+          -26.372,
+          -300.39
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/329527257"
+    },
+    {
+      "id": "mira45",
+      "osmId": "way/331712070",
+      "name": "45",
+      "polygon": [
+        [
+          -44.391,
+          -272.106
+        ],
+        [
+          -43.796,
+          -268.429
+        ],
+        [
+          -43.283,
+          -265.307
+        ],
+        [
+          -36.6,
+          -266.384
+        ],
+        [
+          -34.498,
+          -253.453
+        ],
+        [
+          -21.442,
+          -255.564
+        ],
+        [
+          -17.611,
+          -258.83
+        ],
+        [
+          -20.048,
+          -275.705
+        ],
+        [
+          -37.928,
+          -273.15
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/331712070"
+    },
+    {
+      "id": "mira53",
+      "osmId": "way/331713886",
+      "name": "53",
+      "polygon": [
+        [
+          -90.458,
+          -384.967
+        ],
+        [
+          -88.584,
+          -371.325
+        ],
+        [
+          -75.145,
+          -373.157
+        ],
+        [
+          -76.05,
+          -379.734
+        ],
+        [
+          -49.409,
+          -383.377
+        ],
+        [
+          -46.035,
+          -361.114
+        ],
+        [
+          -29.972,
+          -363.224
+        ],
+        [
+          -30.861,
+          -372.19
+        ],
+        [
+          -34.153,
+          -395.753
+        ],
+        [
+          -44.543,
+          -394.298
+        ],
+        [
+          -73.662,
+          -390.343
+        ],
+        [
+          -73.246,
+          -387.31
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/331713886"
+    },
+    {
+      "id": "officers",
+      "osmId": "way/332179770",
+      "name": "Дом Офицеров",
+      "polygon": [
+        [
+          -98.166,
+          100.311
+        ],
+        [
+          -92.014,
+          137.094
+        ],
+        [
+          -27.064,
+          118.021
+        ],
+        [
+          -32.761,
+          93.503
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "levels-derived",
+        "assumed": true,
+        "levels": 3,
+        "assumedFloorMeters": 3.2,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/332179770"
+    },
+    {
+      "id": "mira28",
+      "osmId": "way/332187574",
+      "name": "28",
+      "polygon": [
+        [
+          55.294,
+          -27.866
+        ],
+        [
+          61.007,
+          5.54
+        ],
+        [
+          74.406,
+          3.285
+        ],
+        [
+          68.236,
+          -29.865
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/332187574"
+    },
+    {
+      "id": "mira52",
+      "osmId": "way/332189281",
+      "name": "52",
+      "polygon": [
+        [
+          7.052,
+          -401.929
+        ],
+        [
+          10.165,
+          -381.576
+        ],
+        [
+          12.292,
+          -380.01
+        ],
+        [
+          31.582,
+          -382.465
+        ],
+        [
+          29.724,
+          -395.396
+        ],
+        [
+          24.524,
+          -395.13
+        ],
+        [
+          25.135,
+          -392.497
+        ],
+        [
+          21.623,
+          -391.919
+        ],
+        [
+          20.588,
+          -398.174
+        ],
+        [
+          36.317,
+          -400.762
+        ],
+        [
+          35.388,
+          -406.372
+        ],
+        [
+          23.652,
+          -404.45
+        ]
+      ],
+      "height": {
+        "meters": 6.4,
+        "minMeters": 0,
+        "method": "levels-derived",
+        "assumed": true,
+        "levels": 2,
+        "assumedFloorMeters": 3.2,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/332189281"
+    },
+    {
+      "id": "mira42",
+      "osmId": "way/378185716",
+      "name": "19",
+      "polygon": [
+        [
+          31.433,
+          -226.145
+        ],
+        [
+          34.611,
+          -206.215
+        ],
+        [
+          36.388,
+          -205.104
+        ],
+        [
+          39.558,
+          -204.726
+        ],
+        [
+          52.215,
+          -207.148
+        ],
+        [
+          50.495,
+          -215.525
+        ],
+        [
+          45.728,
+          -214.603
+        ],
+        [
+          43.299,
+          -227.823
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/378185716",
+      "placement": {
+        "method": "reference-address-match",
+        "note": "Historical avenue frontage matched by cross-street address and adjacency; exact source outline retained. No. 48 here is the two-storey Nikitina 22 frontage, not the separate five-storey Dom Mody."
+      }
+    },
+    {
+      "id": "mira38",
+      "osmId": "way/378201408",
+      "name": "38",
+      "polygon": [
+        [
+          40.576,
+          -142.436
+        ],
+        [
+          44.162,
+          -117.34
+        ],
+        [
+          56.045,
+          -118.862
+        ],
+        [
+          55.01,
+          -127.772
+        ],
+        [
+          53.209,
+          -138.459
+        ],
+        [
+          67.748,
+          -141.114
+        ],
+        [
+          68.962,
+          -129.416
+        ],
+        [
+          79.899,
+          -130.816
+        ],
+        [
+          79.272,
+          -135.015
+        ],
+        [
+          77.202,
+          -148.691
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/378201408"
+    },
+    {
+      "id": "mira43",
+      "osmId": "way/386485886",
+      "name": "43",
+      "polygon": [
+        [
+          -27.041,
+          -242.099
+        ],
+        [
+          -23.138,
+          -219.125
+        ],
+        [
+          -12.054,
+          -221.136
+        ],
+        [
+          -16.373,
+          -243.643
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/386485886"
+    },
+    {
+      "id": "mira51",
+      "osmId": "way/394353589",
+      "name": "51",
+      "polygon": [
+        [
+          -46.011,
+          -360.647
+        ],
+        [
+          -42.638,
+          -335.251
+        ],
+        [
+          -26.615,
+          -337.362
+        ],
+        [
+          -29.997,
+          -362.769
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/394353589"
+    },
+    {
+      "id": "mira34",
+      "osmId": "way/943235071",
+      "name": "Проспект Мира, 34",
+      "polygon": [
+        [
+          47.0369,
+          -95.64364
+        ],
+        [
+          51.007,
+          -65.682
+        ],
+        [
+          62.833,
+          -67.282
+        ],
+        [
+          73.526,
+          -68.737
+        ],
+        [
+          68.978287,
+          -98.551008
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/943235071",
+      "placement": {
+        "method": "estimated-subdivision",
+        "parentOsmId": "way/943235071",
+        "frontSplit": 0.42,
+        "part": "south",
+        "note": "Shared OSM footprint; internal boundary estimated from facade proportions. Not a separate surveyed building polygon."
+      }
+    },
+    {
+      "id": "mira36",
+      "osmId": "way/943235071",
+      "name": "Проспект Мира, 36",
+      "polygon": [
+        [
+          44.162,
+          -117.34
+        ],
+        [
+          47.0369,
+          -95.64364
+        ],
+        [
+          68.978287,
+          -98.551008
+        ],
+        [
+          65.653,
+          -120.351
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/943235071",
+      "placement": {
+        "method": "estimated-subdivision",
+        "parentOsmId": "way/943235071",
+        "frontSplit": 0.42,
+        "part": "north",
+        "note": "Shared OSM footprint; internal boundary estimated from facade proportions. Not a separate surveyed building polygon."
+      }
+    },
+    {
+      "id": "mira32",
+      "osmId": "way/943235073",
+      "name": "32",
+      "polygon": [
+        [
+          51.007,
+          -65.682
+        ],
+        [
+          52.841,
+          -49.995
+        ],
+        [
+          65.286,
+          -51.706
+        ],
+        [
+          62.833,
+          -67.282
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/943235073"
+    },
+    {
+      "id": "mira30",
+      "osmId": "way/943235074",
+      "name": "30",
+      "polygon": [
+        [
+          52.841,
+          -49.995
+        ],
+        [
+          55.294,
+          -27.866
+        ],
+        [
+          68.236,
+          -29.865
+        ],
+        [
+          65.286,
+          -51.706
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/943235074"
+    },
+    {
+      "id": "mira31",
+      "osmId": "way/943236543",
+      "name": "",
+      "polygon": [
+        [
+          -5.325,
+          -34.721
+        ],
+        [
+          -2.351,
+          -15.024
+        ],
+        [
+          12.466,
+          -17.234
+        ],
+        [
+          9.499,
+          -36.942
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/943236543",
+      "placement": {
+        "method": "reference-address-match",
+        "note": "Source has no address; assigned from adjacency to hotel 29 and facade reference. Footprint unchanged."
+      }
+    }
+  ],
+  "contextBuildings": [
+    {
+      "id": "context-way-1276048267",
+      "osmId": "way/1276048267",
+      "name": "1",
+      "polygon": [
+        [
+          89.654,
+          -20.444
+        ],
+        [
+          91.79,
+          -2.914
+        ],
+        [
+          114.504,
+          -5.669
+        ],
+        [
+          111.928,
+          -31.143
+        ],
+        [
+          103.811,
+          -29.943
+        ],
+        [
+          104.724,
+          -22.266
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/1276048267",
+      "address": "переулок Вахтангова 1",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-1276048268",
+      "osmId": "way/1276048268",
+      "name": "3",
+      "polygon": [
+        [
+          84.251,
+          -37.208
+        ],
+        [
+          85.726,
+          -27.277
+        ],
+        [
+          103.811,
+          -29.943
+        ],
+        [
+          111.928,
+          -31.143
+        ],
+        [
+          110.453,
+          -41.074
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/1276048268",
+      "address": "переулок Вахтангова 3",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-202259079",
+      "osmId": "way/202259079",
+      "name": "34",
+      "polygon": [
+        [
+          -124.718,
+          -412.286
+        ],
+        [
+          -118.085,
+          -378.469
+        ],
+        [
+          -104.011,
+          -381.201
+        ],
+        [
+          -108.435,
+          -403.776
+        ],
+        [
+          -57.549,
+          -413.684
+        ],
+        [
+          -59.75,
+          -424.937
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/202259079",
+      "address": "улица Кирова 34",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-202260340",
+      "osmId": "way/202260340",
+      "name": "22",
+      "polygon": [
+        [
+          51.164,
+          -313.031
+        ],
+        [
+          53.177,
+          -302.555
+        ],
+        [
+          63.87,
+          -304.588
+        ],
+        [
+          64.212,
+          -302.799
+        ],
+        [
+          88.742,
+          -307.454
+        ],
+        [
+          89.451,
+          -303.744
+        ],
+        [
+          96.354,
+          -305.055
+        ],
+        [
+          93.298,
+          -321.041
+        ]
+      ],
+      "height": {
+        "meters": 16,
+        "minMeters": 0,
+        "method": "levels-derived",
+        "assumed": true,
+        "levels": 5,
+        "assumedFloorMeters": 3.2,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/202260340",
+      "address": "улица Никитина 22",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-202260345",
+      "osmId": "way/202260345",
+      "name": "3",
+      "polygon": [
+        [
+          43.822,
+          -364.867
+        ],
+        [
+          46.772,
+          -347.67
+        ],
+        [
+          94.667,
+          -355.824
+        ],
+        [
+          91.717,
+          -373.021
+        ]
+      ],
+      "height": {
+        "meters": 16,
+        "minMeters": 0,
+        "method": "levels-derived",
+        "assumed": true,
+        "levels": 5,
+        "assumedFloorMeters": 3.2,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/202260345",
+      "address": "Петровский переулок 3",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-285879858",
+      "osmId": "way/285879858",
+      "name": "2",
+      "polygon": [
+        [
+          63.338,
+          51.055
+        ],
+        [
+          64.128,
+          55.199
+        ],
+        [
+          66.907,
+          72.441
+        ],
+        [
+          81.015,
+          70.83
+        ],
+        [
+          80.689,
+          68.03
+        ],
+        [
+          79.613,
+          63.309
+        ],
+        [
+          126.721,
+          54.81
+        ],
+        [
+          123.827,
+          39.624
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/285879858",
+      "address": "улица Куйбышева 2",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-323444826",
+      "osmId": "way/323444826",
+      "name": "1",
+      "polygon": [
+        [
+          -84.756,
+          -6.249
+        ],
+        [
+          -77.609,
+          22.113
+        ],
+        [
+          -50.021,
+          19.236
+        ],
+        [
+          -47.894,
+          16.87
+        ],
+        [
+          -46.891,
+          15.493
+        ],
+        [
+          -52.278,
+          -3.249
+        ],
+        [
+          -64.316,
+          -0.994
+        ],
+        [
+          -62.564,
+          4.994
+        ],
+        [
+          -71.211,
+          5.749
+        ],
+        [
+          -72.466,
+          -3.25
+        ],
+        [
+          -75.978,
+          -2.994
+        ],
+        [
+          -76.353,
+          -8.371
+        ]
+      ],
+      "height": {
+        "meters": 6.4,
+        "minMeters": 0,
+        "method": "levels-derived",
+        "assumed": true,
+        "levels": 2,
+        "assumedFloorMeters": 3.2,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/323444826",
+      "address": "улица Миллера 1",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-323444827",
+      "osmId": "way/323444827",
+      "name": "21",
+      "polygon": [
+        [
+          49.028,
+          -230.222
+        ],
+        [
+          51.367,
+          -215.969
+        ],
+        [
+          53.087,
+          -207.593
+        ],
+        [
+          74.871,
+          -211.758
+        ],
+        [
+          72.467,
+          -224.579
+        ],
+        [
+          63.421,
+          -223.146
+        ],
+        [
+          61.555,
+          -232.266
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/323444827",
+      "address": "улица Джанаева 21",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-323444829",
+      "osmId": "way/323444829",
+      "name": "24",
+      "polygon": [
+        [
+          56.086,
+          -254.163
+        ],
+        [
+          57.985,
+          -245.342
+        ],
+        [
+          70.014,
+          -247.919
+        ],
+        [
+          68.115,
+          -256.729
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/323444829",
+      "address": "улица Маяковского 24",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-323445841",
+      "osmId": "way/323445841",
+      "name": "14",
+      "polygon": [
+        [
+          -71.435,
+          -167.679
+        ],
+        [
+          -65.25,
+          -137.25
+        ],
+        [
+          -54.671,
+          -139.383
+        ],
+        [
+          -57.499,
+          -153.27
+        ],
+        [
+          -45.901,
+          -155.613
+        ],
+        [
+          -43.082,
+          -141.771
+        ],
+        [
+          -33.897,
+          -143.626
+        ],
+        [
+          -40.074,
+          -174.01
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/323445841",
+      "address": "улица Миллера 14",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-329630141",
+      "osmId": "way/329630141",
+      "name": "",
+      "polygon": [
+        [
+          46.699,
+          -393.574
+        ],
+        [
+          47.881,
+          -385.92
+        ],
+        [
+          103.281,
+          -394.396
+        ],
+        [
+          100.731,
+          -410.971
+        ],
+        [
+          84.513,
+          -408.483
+        ],
+        [
+          84.081,
+          -411.282
+        ],
+        [
+          83.413,
+          -415.604
+        ],
+        [
+          81.498,
+          -415.304
+        ],
+        [
+          67.538,
+          -413.171
+        ],
+        [
+          69.355,
+          -401.406
+        ],
+        [
+          66.323,
+          -400.939
+        ],
+        [
+          66.038,
+          -402.772
+        ],
+        [
+          49.397,
+          -400.228
+        ],
+        [
+          50.342,
+          -394.129
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/329630141",
+      "address": "",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-331712072",
+      "osmId": "way/331712072",
+      "name": "17",
+      "polygon": [
+        [
+          -66.355,
+          -255.076
+        ],
+        [
+          -65.19,
+          -248.51
+        ],
+        [
+          -35.655,
+          -253.742
+        ],
+        [
+          -36.706,
+          -259.619
+        ],
+        [
+          -41.278,
+          -258.808
+        ],
+        [
+          -41.743,
+          -261.419
+        ],
+        [
+          -49.355,
+          -260.063
+        ],
+        [
+          -50.666,
+          -267.418
+        ],
+        [
+          -59.949,
+          -265.774
+        ],
+        [
+          -58.295,
+          -256.498
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/331712072",
+      "address": "улица Маяковского 17",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-331712073",
+      "osmId": "way/331712073",
+      "name": "20",
+      "polygon": [
+        [
+          -66.957,
+          -293.492
+        ],
+        [
+          -63.135,
+          -272.206
+        ],
+        [
+          -61.22,
+          -272.528
+        ],
+        [
+          -59.949,
+          -265.774
+        ],
+        [
+          -50.666,
+          -267.418
+        ],
+        [
+          -43.796,
+          -268.429
+        ],
+        [
+          -44.391,
+          -272.106
+        ],
+        [
+          -45.1,
+          -277.538
+        ],
+        [
+          -38.743,
+          -278.438
+        ],
+        [
+          -39.558,
+          -283.748
+        ],
+        [
+          -53.413,
+          -281.571
+        ],
+        [
+          -53.82,
+          -283.504
+        ],
+        [
+          -55.678,
+          -283.216
+        ],
+        [
+          -57.512,
+          -295.058
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/331712073",
+      "address": "улица Никитина 20",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-331713880",
+      "osmId": "way/331713880",
+      "name": "40",
+      "polygon": [
+        [
+          41.826,
+          -440.511
+        ],
+        [
+          46.993,
+          -409.816
+        ],
+        [
+          72.704,
+          -414.104
+        ],
+        [
+          70.936,
+          -424.613
+        ],
+        [
+          57.538,
+          -422.369
+        ],
+        [
+          56.87,
+          -426.358
+        ],
+        [
+          66.975,
+          -428.046
+        ],
+        [
+          64.254,
+          -444.255
+        ]
+      ],
+      "height": {
+        "meters": 3.2,
+        "minMeters": 0,
+        "method": "levels-derived",
+        "assumed": true,
+        "levels": 1,
+        "assumedFloorMeters": 3.2,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/331713880",
+      "address": "улица Кирова 40",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-332184337",
+      "osmId": "way/332184337",
+      "name": "5",
+      "polygon": [
+        [
+          -56.294,
+          -94.501
+        ],
+        [
+          -53.425,
+          -81.848
+        ],
+        [
+          -50.801,
+          -79.226
+        ],
+        [
+          -37.484,
+          -80.847
+        ],
+        [
+          -39.13,
+          -92.69
+        ],
+        [
+          -40.491,
+          -92.268
+        ],
+        [
+          -41.257,
+          -97.412
+        ],
+        [
+          -46.172,
+          -96.434
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/332184337",
+      "address": "улица Некрасова 5",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-332184339",
+      "osmId": "way/332184339",
+      "name": "12",
+      "polygon": [
+        [
+          -64.924,
+          -135.273
+        ],
+        [
+          -63.384,
+          -125.23
+        ],
+        [
+          -41.183,
+          -128.607
+        ],
+        [
+          -42.023,
+          -134.072
+        ],
+        [
+          -35.185,
+          -135.116
+        ],
+        [
+          -35.886,
+          -139.694
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/332184339",
+      "address": "улица Миллера 12",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-332380685",
+      "osmId": "way/332380685",
+      "name": "15",
+      "polygon": [
+        [
+          -81.707,
+          -328.187
+        ],
+        [
+          -80.607,
+          -321.543
+        ],
+        [
+          -58.065,
+          -325.253
+        ],
+        [
+          -57.568,
+          -322.243
+        ],
+        [
+          -70.966,
+          -320.043
+        ],
+        [
+          -68.815,
+          -307.056
+        ],
+        [
+          -48.677,
+          -310.444
+        ],
+        [
+          -52.034,
+          -333.352
+        ],
+        [
+          -62.922,
+          -331.708
+        ],
+        [
+          -64.584,
+          -341.773
+        ],
+        [
+          -71.08,
+          -340.707
+        ],
+        [
+          -69.344,
+          -330.219
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/332380685",
+      "address": "улица Никитина 15",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-378182282",
+      "osmId": "way/378182282",
+      "name": "18",
+      "polygon": [
+        [
+          34.155,
+          -186.829
+        ],
+        [
+          35.866,
+          -177.62
+        ],
+        [
+          69.158,
+          -182.963
+        ],
+        [
+          66.738,
+          -194.85
+        ],
+        [
+          35.051,
+          -188.918
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/378182282",
+      "address": "улица Джанаева 18",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-386485884",
+      "osmId": "way/386485884",
+      "name": "20",
+      "polygon": [
+        [
+          -54.84,
+          -236.845
+        ],
+        [
+          -53.308,
+          -228.824
+        ],
+        [
+          -25.517,
+          -234.078
+        ],
+        [
+          -27.041,
+          -242.099
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/386485884",
+      "address": "улица Маяковского 20",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-943008810",
+      "osmId": "way/943008810",
+      "name": "22",
+      "polygon": [
+        [
+          66.907,
+          72.441
+        ],
+        [
+          69.499,
+          94.915
+        ],
+        [
+          85.31,
+          93.115
+        ],
+        [
+          85.09,
+          91.404
+        ],
+        [
+          84.128,
+          82.928
+        ],
+        [
+          120.453,
+          78.784
+        ],
+        [
+          118.717,
+          63.675
+        ],
+        [
+          80.689,
+          68.03
+        ],
+        [
+          81.015,
+          70.83
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/943008810",
+      "address": "проспект Мира 22",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-943008811",
+      "osmId": "way/943008811",
+      "name": "20",
+      "polygon": [
+        [
+          69.491,
+          95.126
+        ],
+        [
+          72.156,
+          114.567
+        ],
+        [
+          85.351,
+          112.79
+        ],
+        [
+          84.593,
+          100.092
+        ],
+        [
+          124.349,
+          95.026
+        ],
+        [
+          123.265,
+          86.55
+        ],
+        [
+          85.09,
+          91.404
+        ],
+        [
+          85.31,
+          93.115
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/943008811",
+      "elevation": {
+        "storeys": 2,
+        "cornice": 8,
+        "storeysStatus": "document-checked",
+        "heightStatus": "estimated",
+        "reviewed": "2026-11-15",
+        "note": "Мира, 20: в описании обследования основной корпус лит. А, а — двухэтажный с подвалом. Подвал не образует третий надземный ряд окон. Высота 8 м — игровая оценка, не обмер из документа; отдельные дворовые объёмы не обследованы в этой модели.",
+        "sourceUrl": "https://okn.alania.gov.ru/sites/okn/files/media/drafts/files/2024-09/%D0%90%D0%BA%D1%82%20%D1%8D%D0%BA%D1%81%D0%BF%D0%B5%D1%80%D1%82%D0%B8%D0%B7%D1%8B_compressed%20%281%29.pdf"
+      },
+      "address": "проспект Мира 20",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-943008812",
+      "osmId": "way/943008812",
+      "name": "18",
+      "polygon": [
+        [
+          72.156,
+          114.567
+        ],
+        [
+          73.892,
+          127.365
+        ],
+        [
+          87.087,
+          125.588
+        ],
+        [
+          85.351,
+          112.79
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/943008812",
+      "address": "проспект Мира 18",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    },
+    {
+      "id": "context-way-943238122",
+      "osmId": "way/943238122",
+      "name": "",
+      "polygon": [
+        [
+          32.323,
+          -390.63
+        ],
+        [
+          33.415,
+          -380.598
+        ],
+        [
+          45.794,
+          -382.42
+        ],
+        [
+          44.271,
+          -392.885
+        ]
+      ],
+      "height": {
+        "meters": 9.6,
+        "minMeters": 0,
+        "method": "type-estimate",
+        "assumed": true,
+        "levels": null,
+        "assumedFloorMeters": null,
+        "issues": []
+      },
+      "sourceUrl": "https://www.openstreetmap.org/way/943238122",
+      "address": "",
+      "role": "context",
+      "placement": {
+        "method": "source-footprint",
+        "note": "Exact OSM outline; adjacent massing corroborated by user 2GIS screenshots. Height and facade details are approximate."
+      }
+    }
+  ],
+  "source": "OpenStreetMap contributors, ODbL 1.0; existing snapshot 2026-11-09"
+}

@@ -1,0 +1,1946 @@
+{
+  "schemaVersion": 1,
+  "buildings": [
+    {
+      "id": "mira26",
+      "title": "Проспект Мира, 26",
+      "subtitle": "Арки и полосатые маркизы",
+      "osmId": "way/269615186",
+      "frontEdge": [
+        0,
+        1
+      ],
+      "note": "Два этажа. Три высокие арки с треугольными сандриками, балкон с навесом; справа — более низкое крыло. Высоты и глубина декора оценены, дворовой фасад упрощён.",
+      "sources": [
+        {
+          "title": "Фасад, 2022 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Дом_№_26_на_проспекте_Мира,_Владикавказ.png",
+          "date": "2022-08-18",
+          "license": "CC-BY-SA-4.0"
+        },
+        {
+          "title": "Вид с проспекта, 2023 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Дом_26_на_проспекте_Мира,_-_дом_1_на_Куйбышева.png",
+          "date": "2023-04-06",
+          "license": "CC-BY-SA-4.0"
+        },
+        {
+          "title": "Реестр: доходный дом И. Н. Уланова",
+          "url": "https://okn.alania.gov.ru/pages/1980"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira26",
+        "template": "arcade-wing",
+        "floorHeight": 4.1,
+        "wingBays": 5,
+        "windowWidth": 0.61,
+        "windowShape": "arch",
+        "colors": {
+          "wall": "#eee7d8",
+          "trim": "#fff4df",
+          "accent": "#ccaa9b",
+          "roof": "#887a6d"
+        },
+        "details": {
+          "balconies": true,
+          "awnings": true,
+          "parapet": true,
+          "ornament": true,
+          "rustication": false,
+          "shutters": false,
+          "turret": false
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два этажа; арочный ризалит немного выше бокового крыла."
+      }
+    },
+    {
+      "id": "mira28",
+      "title": "Проспект Мира, 28",
+      "subtitle": "Два балкона и солнечная розетка",
+      "osmId": "way/332187574",
+      "frontEdge": [
+        0,
+        1
+      ],
+      "note": "Два этажа. По шесть окон в боковых крыльях, три узких проёма над входом. Два балкона и округлый аттик с розеткой. Высоты оценены; крыша и дворовой фасад условные.",
+      "sources": [
+        {
+          "title": "Фасад, 2020 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_28,_Владикавказ.jpg",
+          "date": "2020-01-17",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira28",
+        "template": "rosette-palace",
+        "floorHeight": 4.25,
+        "wingBays": 6,
+        "windowWidth": 0.68,
+        "windowShape": "rect",
+        "colors": {
+          "wall": "#b7c5ac",
+          "trim": "#eee6cb",
+          "accent": "#8d9e86",
+          "roof": "#6d7f78"
+        },
+        "details": {
+          "balconies": true,
+          "awnings": false,
+          "parapet": true,
+          "ornament": true,
+          "rustication": true,
+          "shutters": false,
+          "turret": false
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два этажа; круглый аттик не считается третьим."
+      }
+    },
+    {
+      "id": "mira30",
+      "title": "Проспект Мира, 30",
+      "subtitle": "Узкие окна и широкий торговый этаж",
+      "osmId": "way/943235074",
+      "frontEdge": [
+        0,
+        1
+      ],
+      "note": "Два этажа по фотографии 2020 года: десять узких верхних окон с пологими арками, светлые карнизы и асимметричный ряд витрин и входов. На снимке большинство проёмов первого этажа закрыто рольставнями. Высоты и крыша оценены; задняя стена упрощена.",
+      "sources": [
+        {
+          "title": "Фасад, 2020 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_30,_Владикавказ.jpg",
+          "date": "2020-01-17",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira30",
+        "template": "shopfront-row",
+        "floorHeight": 3.9,
+        "wingBays": 10,
+        "windowWidth": 0.58,
+        "windowShape": "segmental",
+        "colors": {
+          "wall": "#d1b99f",
+          "trim": "#f6eedc",
+          "accent": "#ad9886",
+          "roof": "#8b7b6d"
+        },
+        "details": {
+          "balconies": false,
+          "awnings": false,
+          "parapet": false,
+          "ornament": true,
+          "rustication": false,
+          "shutters": true,
+          "turret": false
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два этажа. Линия основного карниза почти совпадает с №32 на совместном фото."
+      },
+      "previousDefaults": [
+        {
+          "schemaVersion": 1,
+          "buildingId": "mira30",
+          "template": "shopfront-row",
+          "floorHeight": 4,
+          "wingBays": 10,
+          "windowWidth": 0.58,
+          "windowShape": "segmental",
+          "colors": {
+            "wall": "#d1b99f",
+            "trim": "#f6eedc",
+            "accent": "#ad9886",
+            "roof": "#8b7b6d"
+          },
+          "details": {
+            "balconies": false,
+            "awnings": false,
+            "parapet": false,
+            "ornament": true,
+            "rustication": false,
+            "shutters": true,
+            "turret": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "mira32",
+      "title": "Проспект Мира, 32",
+      "subtitle": "Пять арок в белых обрамлениях",
+      "osmId": "way/943235073",
+      "frontEdge": [
+        0,
+        1
+      ],
+      "note": "Два этажа, пять арочных окон верхнего ряда в широких белых обрамлениях, спокойные розовато-серые стены и прямоугольные нижние проёмы. Балкон слева на фотографии относится к соседнему дому и сюда не перенесён. Высоты и крыша оценены; задняя стена упрощена.",
+      "sources": [
+        {
+          "title": "Фасад, 2020 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_32,_Владикавказ.jpg",
+          "date": "2020-01-17",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira32",
+        "template": "arched-row",
+        "floorHeight": 3.9,
+        "wingBays": 5,
+        "windowWidth": 0.6,
+        "windowShape": "arch",
+        "colors": {
+          "wall": "#d2c6c4",
+          "trim": "#f7efde",
+          "accent": "#b4a3a0",
+          "roof": "#8a7770"
+        },
+        "details": {
+          "balconies": false,
+          "awnings": false,
+          "parapet": false,
+          "ornament": true,
+          "rustication": false,
+          "shutters": true,
+          "turret": false
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два этажа. Общий уровень карниза с №30; арки относятся ко второму этажу."
+      },
+      "previousDefaults": [
+        {
+          "schemaVersion": 1,
+          "buildingId": "mira32",
+          "template": "arched-row",
+          "floorHeight": 4.1,
+          "wingBays": 5,
+          "windowWidth": 0.6,
+          "windowShape": "arch",
+          "colors": {
+            "wall": "#d2c6c4",
+            "trim": "#f7efde",
+            "accent": "#b4a3a0",
+            "roof": "#8a7770"
+          },
+          "details": {
+            "balconies": false,
+            "awnings": false,
+            "parapet": false,
+            "ornament": true,
+            "rustication": false,
+            "shutters": true,
+            "turret": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "mira34",
+      "title": "Проспект Мира, 34",
+      "subtitle": "Трёхэтажная середина, фронтон и балконы",
+      "osmId": "way/943235071",
+      "frontEdge": [
+        0,
+        1
+      ],
+      "note": "По фотографии 2020 года: серо-голубые стены, арочные окна, высокая середина из пяти осей, фронтон со щитом, светлый центральный балкон и балкон с навесом у южного края. Края крыльев, высоты и крыша восстановлены приблизительно. Общий контур OSM разделён между №34 и №36 оценочно.",
+      "sources": [
+        {
+          "title": "Главная часть, 2020 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_34,_Владикавказ.jpg",
+          "date": "2020-01-13",
+          "license": "CC-BY-SA-4.0"
+        },
+        {
+          "title": "Южный край рядом с №32 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_32,_Владикавказ.jpg",
+          "date": "2020-01-17",
+          "license": "CC-BY-SA-4.0"
+        },
+        {
+          "title": "Стык с №36, 2022 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира,_36,_Владикавказ.png",
+          "date": "2022-07-09",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira34",
+        "template": "library-mansion",
+        "floorHeight": 4.2,
+        "wingBays": 3,
+        "windowWidth": 0.57,
+        "windowShape": "arch",
+        "colors": {
+          "wall": "#b0bfc0",
+          "trim": "#edeedf",
+          "accent": "#8c9e9f",
+          "roof": "#837c76"
+        },
+        "details": {
+          "balconies": true,
+          "awnings": false,
+          "parapet": false,
+          "ornament": true,
+          "rustication": true,
+          "shutters": false,
+          "turret": false
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2,
+          3,
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Три этажа только в центре, два в крыльях. Верхний ярус центра ниже основных; принято 0,75 базового этажа."
+      }
+    },
+    {
+      "id": "mira36",
+      "title": "Проспект Мира, 36",
+      "subtitle": "Розовые панели и широкий проезд",
+      "osmId": "way/943235071",
+      "frontEdge": [
+        0,
+        1
+      ],
+      "note": "По фотографиям 2020 и 2022 годов: два этажа, девять прямоугольных верхних окон, два оттенка розовой стены, рельефные панели, тёмный цоколь, витрины и широкий проезд с воротами. Высоты, крыша и граница с №34 оценены; в OSM оба фасада попали в общий контур. Вывески арендаторов не воспроизведены.",
+      "sources": [
+        {
+          "title": "Полный фасад, 2020 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_36,_Владикавказ.jpg",
+          "date": "2020-01-17",
+          "license": "CC-BY-SA-4.0"
+        },
+        {
+          "title": "Проезд и панели, 2022 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира,_36,_Владикавказ.png",
+          "date": "2022-07-09",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira36",
+        "template": "panelled-row",
+        "floorHeight": 3.7,
+        "wingBays": 9,
+        "windowWidth": 0.57,
+        "windowShape": "rect",
+        "colors": {
+          "wall": "#d6b9b3",
+          "trim": "#f0e6d9",
+          "accent": "#b49b99",
+          "roof": "#897d74"
+        },
+        "details": {
+          "balconies": false,
+          "awnings": false,
+          "parapet": false,
+          "ornament": true,
+          "rustication": false,
+          "shutters": true,
+          "turret": false
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два этажа. Горизонтальные филёнки над окнами не являются дополнительным ярусом."
+      }
+    },
+    {
+      "id": "mira38",
+      "title": "Проспект Мира, 38",
+      "subtitle": "Остеклённые пролёты и гирлянды",
+      "osmId": "way/378201408",
+      "frontEdge": [
+        0,
+        1
+      ],
+      "note": "По фотографии 2020 года: широкие остеклённые пролёты по сторонам узкого центрального входа, округлые металлические козырьки, ступенчатое завершение фасада с тремя гирляндами и ромбом в медальоне. Сохранён исходный контур с выемкой двора. Высоты, глубина выступов и крыша оценены; скрытые стены упрощены.",
+      "sources": [
+        {
+          "title": "Главный фасад, 2020 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_38,_Владикавказ.jpg",
+          "date": "2020-01-17",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira38",
+        "template": "glazed-bays",
+        "floorHeight": 4.2,
+        "wingBays": 4,
+        "windowWidth": 0.58,
+        "windowShape": "rect",
+        "colors": {
+          "wall": "#d4d2c5",
+          "trim": "#eeeadb",
+          "accent": "#aaa99c",
+          "roof": "#8c8c82"
+        },
+        "details": {
+          "balconies": false,
+          "awnings": false,
+          "parapet": false,
+          "ornament": true,
+          "rustication": true,
+          "shutters": true,
+          "turret": false
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два остеклённых этажа и высокий глухой аттик; не добавлять ряд окон в верхний пояс."
+      }
+    },
+    {
+      "id": "mira40",
+      "title": "Проспект Мира, 40",
+      "subtitle": "Угловая башенка, светлая лепнина и балкон",
+      "osmId": "way/323444824",
+      "frontEdge": [
+        0,
+        1
+      ],
+      "note": "По фотографиям 2020 и 2022 годов: два этажа, светло-зелёные стены, семь верхних окон главного фасада, центральный балкон и аттик, цилиндрическая угловая башенка с двухъярусным куполом. Контур основания взят из карты. Высоты и размер башенки оценены; боковой фасад и крыша упрощены, вывески арендаторов не перенесены.",
+      "sources": [
+        {
+          "title": "Фасад со стороны Мира, 2020 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_40.jpg",
+          "date": "2020-01-13",
+          "license": "CC-BY-SA-4.0"
+        },
+        {
+          "title": "Башенка и лепнина, 2022 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_д._40,_Владикавказ.png",
+          "date": "2022-08-07",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira40",
+        "template": "corner-turret",
+        "floorHeight": 4.3,
+        "wingBays": 7,
+        "windowWidth": 0.5,
+        "windowShape": "segmental",
+        "colors": {
+          "wall": "#c4cda6",
+          "trim": "#f3eddf",
+          "accent": "#9eab8c",
+          "roof": "#8c9692"
+        },
+        "details": {
+          "balconies": true,
+          "awnings": false,
+          "parapet": false,
+          "ornament": true,
+          "rustication": true,
+          "shutters": false,
+          "turret": true
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два этажа и угловая башенка; окна башенки не означают третий этаж всего здания."
+      }
+    },
+    {
+      "id": "mira31",
+      "title": "Проспект Мира, 31",
+      "subtitle": "Зелёный фасад, левый балкон и острый аттик",
+      "osmId": "way/943236543",
+      "frontEdge": [
+        2,
+        3
+      ],
+      "note": "По фото 2020 года: семь верхних проёмов, балкон слева с металлическим козырьком, центральный острый аттик с тремя стойками, вход между двумя рольставнями. Сохранён отдельный OSM-контур; его привязка к адресу установлена по соседству с гостиницей и фото, адреса в исходных тегах нет. Высоты и скрытые стены приблизительные.",
+      "sources": [
+        {
+          "title": "Главный фасад, 2020 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_31,_Владикавказ.jpg",
+          "date": "2020-01-17",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira31",
+        "template": "stepped-gable",
+        "floorHeight": 4.15,
+        "wingBays": 7,
+        "windowWidth": 0.57,
+        "windowShape": "segmental",
+        "colors": {
+          "wall": "#637b71",
+          "trim": "#c9cec0",
+          "accent": "#495f58",
+          "roof": "#68776e"
+        },
+        "details": {
+          "balconies": true,
+          "awnings": false,
+          "parapet": false,
+          "ornament": true,
+          "rustication": true,
+          "shutters": true,
+          "turret": false
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два этажа; ступенчатый щипец расположен над карнизом."
+      }
+    },
+    {
+      "id": "mira33",
+      "title": "Проспект Мира, 33",
+      "subtitle": "Пять фигурных аттиков и выступающий центральный балкон",
+      "osmId": "way/323444825",
+      "frontEdge": [
+        3,
+        4
+      ],
+      "note": "По фото 2020 и 2022 годов: пять верхних проёмов, пять фигурных аттиков с повышенным центром, боковые балконы и выступающий центральный, светлая рустовка, витрины и входы. Общий OSM-контур соседних фасадов разделён приблизительно; северная часть показана как №35, граница между ними оценочная. Высоты, крыша и дворовые стены оценены. Вывески арендаторов не перенесены.",
+      "sources": [
+        {
+          "title": "Главный фасад, 2020 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_33,_Владикавказ.jpg",
+          "date": "2020-01-17",
+          "license": "CC-BY-SA-4.0"
+        },
+        {
+          "title": "Аттики и балконы, 2022 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_д._33,_Владикавказ.png",
+          "date": "2022-08-03",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira33",
+        "template": "five-attics",
+        "floorHeight": 4.15,
+        "wingBays": 5,
+        "windowWidth": 0.54,
+        "windowShape": "rect",
+        "colors": {
+          "wall": "#e4e1d2",
+          "trim": "#fff6e5",
+          "accent": "#b9b6a5",
+          "roof": "#7f8b84"
+        },
+        "details": {
+          "balconies": true,
+          "awnings": false,
+          "parapet": false,
+          "ornament": true,
+          "rustication": true,
+          "shutters": true,
+          "turret": false
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два этажа и пять аттиков. Этажность подтверждена, ширина выделенного контура оценочная."
+      }
+    },
+    {
+      "id": "mira35",
+      "title": "Проспект Мира, 35",
+      "subtitle": "Два круглых окна в аттиках, узкий балкон и маркизы",
+      "osmId": "way/323444825",
+      "frontEdge": [
+        12,
+        13
+      ],
+      "note": "По фотографии 2020 года: розовый двухэтажный фасад, одиннадцать верхних проёмов, центральный балкон, высокий прямой аттик в центре и два фигурных завершения с круглыми отверстиями по краям. Маркизы первого этажа — отдельный модуль. Использована северная часть общего безадресного OSM-контура №33/35; внутренняя граница и привязка приблизительные. Высоты, боковой фасад по Некрасова и дворовые стены упрощены. Вывески не перенесены.",
+      "sources": [
+        {
+          "title": "Фасад, 2020 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_35,_Владикавказ.jpg",
+          "date": "2020-01-17",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira35",
+        "template": "oculus-corners",
+        "floorHeight": 4.1,
+        "wingBays": 11,
+        "windowWidth": 0.55,
+        "windowShape": "rect",
+        "colors": {
+          "wall": "#cbaea7",
+          "trim": "#f2e8d7",
+          "accent": "#a38c86",
+          "roof": "#7f7770"
+        },
+        "details": {
+          "balconies": true,
+          "awnings": true,
+          "parapet": false,
+          "ornament": true,
+          "rustication": true,
+          "shutters": false,
+          "turret": false
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два этажа и угловые круглые аттики. Этажность подтверждена, разделение общего контура оценочное."
+      }
+    },
+    {
+      "id": "mira37",
+      "title": "Проспект Мира, 37",
+      "subtitle": "Белый фасад с арочными крыльями и коралловый с парными окнами",
+      "osmId": "way/323443617",
+      "frontEdge": [
+        8,
+        9
+      ],
+      "note": "По двум фотографиям 2020 года, подписанным адресом №37: белый южный фрагмент с арочными крыльями и центральным балконом, коралловый северный — с пятью парами верхних окон, светлым балконом и отдельным входом справа. Их соседство видно у края фото; ширина каждого фрагмента в общем корпусе оценена. Сохранён отдельный OSM-контур №37 с выемками двора. Высоты, скрытые стены и кровля приблизительные; вывески арендаторов не воспроизводятся.",
+      "sources": [
+        {
+          "title": "Фасад, 2020 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_37,_Владикавказ.jpg",
+          "date": "2020-01-17",
+          "license": "CC-BY-SA-4.0"
+        },
+        {
+          "title": "Белый фрагмент №37, 2020 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_37_во_Владикавказе.jpg",
+          "date": "2020-01-17",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira37",
+        "template": "paired-frontages",
+        "floorHeight": 4.2,
+        "wingBays": 5,
+        "windowWidth": 0.57,
+        "windowShape": "segmental",
+        "colors": {
+          "wall": "#c19488",
+          "trim": "#f2eee1",
+          "accent": "#a19b91",
+          "roof": "#7d8581"
+        },
+        "details": {
+          "balconies": true,
+          "awnings": false,
+          "parapet": false,
+          "ornament": true,
+          "rustication": false,
+          "shutters": true,
+          "turret": false
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Оба видимых фрагмента фасада двухэтажные; их ширины остаются приблизительными."
+      }
+    },
+    {
+      "id": "mira39",
+      "title": "Проспект Мира, 39",
+      "subtitle": "Три этажа, четыре балкона и тёмный магазинный этаж",
+      "osmId": "way/323443252",
+      "frontEdge": [
+        5,
+        6
+      ],
+      "note": "По фотографии 2020 года: три этажа, два ряда по десять жилых проёмов, четыре балкона, козырьки над верхними балконами и тёмный первый этаж с витринами. Контур основания сохранён из отдельного OSM-здания №39. Высоты, размеры балконов, скрытые стены и крыша оценены. Вывески и оборудование арендаторов не перенесены.",
+      "sources": [
+        {
+          "title": "Фасад, 2020 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_39,_Владикавказ.jpg",
+          "date": "2020-01-17",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira39",
+        "template": "three-storey-balconies",
+        "floorHeight": 3.6,
+        "wingBays": 5,
+        "windowWidth": 0.58,
+        "windowShape": "rect",
+        "colors": {
+          "wall": "#dfd7b3",
+          "trim": "#f7efdf",
+          "accent": "#424c4b",
+          "roof": "#7c8175"
+        },
+        "details": {
+          "balconies": true,
+          "awnings": false,
+          "parapet": false,
+          "ornament": true,
+          "rustication": false,
+          "shutters": false,
+          "turret": false
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          3
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Три полноценных ряда: магазины внизу и два жилых этажа."
+      }
+    },
+    {
+      "id": "mira41",
+      "title": "Проспект Мира, 41",
+      "subtitle": "Один этаж, кирпичные карнизы и вход на скошенном углу",
+      "osmId": "way/323444830",
+      "frontEdge": [
+        3,
+        4
+      ],
+      "note": "По фотографиям 2020 и 2022 годов: одноэтажное кирпичное здание №41/17, витрины под тёмными маркизами, рельефные карнизы и фигурные аттики. Вход расположен на скошенном углу; прорисованы стороны по Мира и Джанаева. Сохранён исходный OSM-контур, включая выемки двора. Высота и пропорции деталей оценены; маркизы отражают фото, вывески не воспроизводятся.",
+      "sources": [
+        {
+          "title": "Фасад, 2020 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_41,_Владикавказ.jpg",
+          "date": "2020-01-17",
+          "license": "CC-BY-SA-4.0"
+        },
+        {
+          "title": "Кирпичная кладка и витрины, 2022 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_д._41,_Владикавказ.png",
+          "date": "2022-08-07",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira41",
+        "template": "brick-shop-corner",
+        "floorHeight": 4.4,
+        "wingBays": 4,
+        "windowWidth": 0.69,
+        "windowShape": "rect",
+        "colors": {
+          "wall": "#b96c4a",
+          "trim": "#d18e65",
+          "accent": "#854e3b",
+          "roof": "#74675c"
+        },
+        "details": {
+          "balconies": false,
+          "awnings": true,
+          "parapet": false,
+          "ornament": true,
+          "rustication": true,
+          "shutters": true,
+          "turret": false
+        }
+      },
+      "secondaryFaces": [
+        {
+          "frontEdge": [
+            1,
+            2
+          ],
+          "role": "return",
+          "label": "Улица Джанаева"
+        },
+        {
+          "frontEdge": [
+            2,
+            3
+          ],
+          "role": "corner",
+          "label": "Угловой вход"
+        }
+      ],
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          1
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Один высокий торговый этаж; пояс и фигурные аттики не образуют второй этаж."
+      }
+    },
+    {
+      "id": "mira43",
+      "title": "Проспект Мира, 43",
+      "subtitle": "Красный кирпич, восемь белых наличников и два магазинных входа",
+      "osmId": "way/386485886",
+      "frontEdge": [
+        2,
+        3
+      ],
+      "note": "По фотографии Rartat от 17 января 2020 года: два этажа, восемь верхних окон с белыми наличниками и прямыми сандриками, кирпичные пилястры и витрины первого этажа с двумя входами. Сохранён отдельный исходный OSM-контур №43. Высоты, глубина рельефа, крыша и скрытые стены приблизительные; вывески арендаторов не воспроизводятся.",
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira43",
+        "template": "brick-white-frames",
+        "floorHeight": 3.7,
+        "wingBays": 8,
+        "windowWidth": 0.55,
+        "windowShape": "rect",
+        "colors": {
+          "wall": "#a36049",
+          "trim": "#f4ede0",
+          "accent": "#714c3e",
+          "roof": "#706b5a"
+        },
+        "details": {
+          "balconies": false,
+          "awnings": false,
+          "parapet": false,
+          "ornament": true,
+          "rustication": true,
+          "shutters": false,
+          "turret": false
+        }
+      },
+      "sources": [
+        {
+          "title": "Фасад, 2020 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_43,_Владикавказ.jpg",
+          "date": "2020-01-17",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два этажа; первый торговый, второй с восемью белыми наличниками."
+      }
+    },
+    {
+      "id": "mira45",
+      "title": "Проспект Мира, 45",
+      "subtitle": "Светлая лепнина, сандрики и зелёный этаж с четырьмя нишами",
+      "osmId": "way/331712070",
+      "frontEdge": [
+        6,
+        7
+      ],
+      "note": "По фотографии Rartat от 17 января 2020 года: два этажа, двенадцать осей верхнего ряда, светлые рельефные наличники и треугольные сандрики. На зелёном первом этаже витрины чередуются с четырьмя декоративными нишами; фигуры в нишах переданы условно. Скошенный южный угол имеет отдельную отделку и высокий щит. Контур из OSM сохранён, включая дворовую выемку. Пропорции деталей, высота, частично скрытый угол, крыша и задние стены оценены. Вывески не перенесены.",
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira45",
+        "template": "stucco-niches",
+        "floorHeight": 4.15,
+        "wingBays": 12,
+        "windowWidth": 0.62,
+        "windowShape": "rect",
+        "colors": {
+          "wall": "#d8d9cd",
+          "trim": "#f6efdd",
+          "accent": "#627365",
+          "roof": "#7a8270"
+        },
+        "details": {
+          "balconies": false,
+          "awnings": true,
+          "parapet": false,
+          "ornament": true,
+          "rustication": true,
+          "shutters": true,
+          "turret": false
+        }
+      },
+      "secondaryFaces": [
+        {
+          "frontEdge": [
+            5,
+            6
+          ],
+          "role": "corner",
+          "label": "Южный угол"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Фасад, 2020 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_45,_Владикавказ.jpg",
+          "date": "2020-01-17",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два этажа; высокий верхний ряд окон и более низкий торговый первый."
+      }
+    },
+    {
+      "id": "mira47",
+      "title": "Проспект Мира, 47",
+      "subtitle": "Розовый верх, четыре витрины и два ступенчатых аттика",
+      "osmId": "way/329527257",
+      "frontEdge": [
+        8,
+        9
+      ],
+      "secondaryFaces": [
+        {
+          "frontEdge": [
+            9,
+            10
+          ],
+          "role": "corner",
+          "label": "Северный угол"
+        }
+      ],
+      "note": "По фото 2020/2022: розовый верх, восемь окон с пологими арками, четыре широкие витрины и два ступенчатых аттика. Кованый балкон смотрит на север — выберите «Северный угол», чтобы рассмотреть его. Высоты, крыша, скрытые стены и мелкие детали приблизительны. Вывески не перенесены.",
+      "sources": [
+        {
+          "title": "Главный фасад, 2020 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_47,_Владикавказ.jpg",
+          "date": "2020-01-17",
+          "license": "CC-BY-SA-4.0"
+        },
+        {
+          "title": "Фасад, 2022 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира,_47,_Владикавказ.png",
+          "date": "2022-08-07",
+          "license": "CC-BY-SA-4.0"
+        },
+        {
+          "title": "Балкон и навесы, 2022 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Угол_дома_47_на_проспекте_Мира.png",
+          "date": "2022-08-07",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira47",
+        "template": "rose-shop-attics",
+        "floorHeight": 4.05,
+        "wingBays": 8,
+        "windowWidth": 0.56,
+        "windowShape": "segmental",
+        "colors": {
+          "wall": "#d6aaa0",
+          "trim": "#f3edde",
+          "accent": "#65564a",
+          "roof": "#7a7c6c"
+        },
+        "details": {
+          "balconies": true,
+          "awnings": true,
+          "parapet": false,
+          "ornament": true,
+          "rustication": false,
+          "shutters": false,
+          "turret": false
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два этажа; два ступенчатых аттика над основным карнизом."
+      }
+    },
+    {
+      "id": "mira49",
+      "title": "Проспект Мира, 49",
+      "subtitle": "Светлый фасад, рустованный этаж и угловой балкон",
+      "osmId": "way/269614976",
+      "frontEdge": [
+        3,
+        4
+      ],
+      "secondaryFaces": [
+        {
+          "frontEdge": [
+            2,
+            3
+          ],
+          "role": "corner",
+          "label": "Южный угол"
+        }
+      ],
+      "note": "По фото 2020 года: шесть оконных осей, светлая штукатурка, рустованный низ, решётки и два треугольных сандрика. На южном углу — балкон с аттиком, справа — вход с козырьком. Высоты, крыша, скрытые стены и рисунок ковки приблизительны. Вывески не перенесены.",
+      "sources": [
+        {
+          "title": "Фасад и угол, 2020 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_49,_Владикавказ.jpg",
+          "date": "2020-01-17",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira49",
+        "template": "rusticated-balcony",
+        "floorHeight": 4.05,
+        "wingBays": 6,
+        "windowWidth": 0.43,
+        "windowShape": "rect",
+        "colors": {
+          "wall": "#cecbb4",
+          "trim": "#f4e8d7",
+          "accent": "#77755e",
+          "roof": "#9b9e8b"
+        },
+        "details": {
+          "balconies": true,
+          "awnings": true,
+          "parapet": false,
+          "ornament": true,
+          "rustication": true,
+          "shutters": false,
+          "turret": false
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два этажа; надстройка над скошенным углом локальная."
+      }
+    },
+    {
+      "id": "mira42",
+      "title": "Проспект Мира, 42",
+      "subtitle": "Два круглых аттика, светлая лепнина и зелёный первый этаж",
+      "osmId": "way/378185716",
+      "frontEdge": [
+        0,
+        1
+      ],
+      "note": "По фото 2020 года: два круглых аттика, группы 3–6–3 верхних окон, светлая лепнина, зелёный низ и левый балкон. Контур сопоставлен с Джанаева, 19 по соседству и форме. Высоты, крыша и скрытые стены приблизительны.",
+      "sources": [
+        {
+          "title": "Фасад, 2020 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_42,_Владикавказ.jpg",
+          "date": "2020-01-17",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira42",
+        "template": "twin-oculus",
+        "floorHeight": 4.15,
+        "wingBays": 6,
+        "windowWidth": 0.56,
+        "windowShape": "segmental",
+        "colors": {
+          "wall": "#c4c5a2",
+          "trim": "#f3ecdc",
+          "accent": "#b58f80",
+          "roof": "#797b70"
+        },
+        "details": {
+          "balconies": true,
+          "awnings": false,
+          "parapet": false,
+          "ornament": true,
+          "rustication": true,
+          "shutters": false,
+          "turret": false
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два этажа; полукруглые фронтоны выше основного карниза."
+      }
+    },
+    {
+      "id": "mira44",
+      "title": "Проспект Мира, 44",
+      "subtitle": "Кремовый фасад и широкий балкон под кованым навесом",
+      "osmId": "way/269617706",
+      "frontEdge": [
+        0,
+        2
+      ],
+      "note": "По фото 2022 года: кремовая штукатурка, белые рамки и полосы руста, широкий балкон с ажурным навесом. Угловой адрес — Маяковского, 22. Высоты, крыша, скрытые стены и мелкая ковка приблизительны. Вывески не перенесены.",
+      "sources": [
+        {
+          "title": "Фасад, 2022 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира,_44_-_Маяковского,_22.png",
+          "date": "2022-07-09",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira44",
+        "template": "canopied-balcony",
+        "floorHeight": 4.15,
+        "wingBays": 9,
+        "windowWidth": 0.53,
+        "windowShape": "rect",
+        "colors": {
+          "wall": "#d9ca9f",
+          "trim": "#f4edde",
+          "accent": "#82775e",
+          "roof": "#7d8271"
+        },
+        "details": {
+          "balconies": true,
+          "awnings": true,
+          "parapet": false,
+          "ornament": true,
+          "rustication": true,
+          "shutters": true,
+          "turret": false
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два этажа, отдельный цоколь и балкон с козырьком."
+      }
+    },
+    {
+      "id": "mira46",
+      "title": "Проспект Мира, 46",
+      "subtitle": "Красный кирпич, фигурный портал и широкие витрины",
+      "osmId": "way/323240658",
+      "frontEdge": [
+        0,
+        1
+      ],
+      "note": "По фото 2022 года: кирпичная кладка, фигурные пилястры портала, белые оконные рамы и витрины. Вместе с №48 образует исторический фасад. Не попавшая в кадр часть, высоты, крыша и дворовые стены приблизительны.",
+      "sources": [
+        {
+          "title": "Фасад, 2022 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира,_46,_Владикавказ.png",
+          "date": "2022-07-09",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira46",
+        "template": "brick-portals",
+        "floorHeight": 4.25,
+        "wingBays": 8,
+        "windowWidth": 0.55,
+        "windowShape": "segmental",
+        "colors": {
+          "wall": "#b47b58",
+          "trim": "#eee6d6",
+          "accent": "#855a43",
+          "roof": "#7b7569"
+        },
+        "details": {
+          "balconies": false,
+          "awnings": false,
+          "parapet": false,
+          "ornament": true,
+          "rustication": true,
+          "shutters": false,
+          "turret": false
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два этажа; кирпичные порталы и тумбы над карнизом."
+      }
+    },
+    {
+      "id": "mira48",
+      "title": "Проспект Мира, 48",
+      "subtitle": "Кирпичные аттики, четыре витрины и крытый балкон",
+      "osmId": "way/323240653",
+      "frontEdge": [
+        0,
+        1
+      ],
+      "note": "По фото 2022 года: исторический двухэтажный фасад №48 / Никитина, 22, рядом с №46. Крытый балкон, кирпичные аттики и широкие витрины. Это не пятиэтажный «Дом моды». Высоты, крыша и скрытые стены приблизительны.",
+      "sources": [
+        {
+          "title": "Фасад, 2022 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира,_48,_Владикавказ.png",
+          "date": "2022-08-06",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira48",
+        "template": "brick-canopy",
+        "floorHeight": 4.25,
+        "wingBays": 8,
+        "windowWidth": 0.57,
+        "windowShape": "segmental",
+        "colors": {
+          "wall": "#b08062",
+          "trim": "#efe8db",
+          "accent": "#855d49",
+          "roof": "#75776b"
+        },
+        "details": {
+          "balconies": true,
+          "awnings": true,
+          "parapet": false,
+          "ornament": true,
+          "rustication": true,
+          "shutters": false,
+          "turret": false
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два этажа исторического корпуса; пятиэтажный дом за ним — отдельное здание."
+      }
+    },
+    {
+      "id": "mira50",
+      "title": "Проспект Мира, 50 · Дом моды",
+      "subtitle": "Пять этажей, ленточное остекление и глухой простенок",
+      "osmId": "way/202260343",
+      "frontEdge": [
+        0,
+        2
+      ],
+      "secondaryFaces": [
+        {
+          "frontEdge": [
+            2,
+            3
+          ],
+          "role": "return",
+          "label": "Южный торец"
+        }
+      ],
+      "note": "По фото 2020 года: пять этажей, четыре полосы окон и надпись «Дом моды». В снимке OSM указан №48; здесь адрес №50 сопоставлен по фото. Высота и скрытые стены приблизительны. Вид после последующего ремонта не воспроизводится.",
+      "sources": [
+        {
+          "title": "Дом моды, 2020 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира_50_во_Владикавказе,_Дом_моды.jpg",
+          "date": "2020-01-17",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira50",
+        "template": "ribbon-modern",
+        "floorHeight": 3.4,
+        "wingBays": 10,
+        "windowWidth": 0.66,
+        "windowShape": "rect",
+        "colors": {
+          "wall": "#b8b7a6",
+          "trim": "#d5d6c9",
+          "accent": "#626b63",
+          "roof": "#7b8277"
+        },
+        "details": {
+          "balconies": false,
+          "awnings": false,
+          "parapet": false,
+          "ornament": true,
+          "rustication": true,
+          "shutters": false,
+          "turret": false
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          5
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Пять этажей: торговый первый и четыре горизонтальных ряда остекления."
+      }
+    },
+    {
+      "id": "mira52",
+      "title": "Проспект Мира, 52",
+      "subtitle": "Арочные окна, ажурные балконы и высокие аттики",
+      "osmId": "way/332189281",
+      "frontEdge": [
+        0,
+        1
+      ],
+      "secondaryFaces": [
+        {
+          "frontEdge": [
+            1,
+            2
+          ],
+          "role": "corner",
+          "label": "Угол переулка"
+        },
+        {
+          "frontEdge": [
+            2,
+            3
+          ],
+          "role": "return",
+          "label": "Петровский переулок"
+        }
+      ],
+      "note": "По фото 2020/2022: светло-зелёный фасад, арки, выпуклые балконы и высокие аттики. В списке сторон доступны угол и Петровский переулок. Высоты, крыша, скрытые стены и мелкая ковка приблизительны. Вывески магазинов не перенесены.",
+      "sources": [
+        {
+          "title": "Фасад, 2022 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира,_52,_Владикавказ.png",
+          "date": "2022-08-06",
+          "license": "CC-BY-SA-4.0"
+        },
+        {
+          "title": "Угол и переулок, 2022 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Проспект_Мира,_52_-_Петровский_переулок,_1.png",
+          "date": "2022-07-09",
+          "license": "CC-BY-SA-4.0"
+        },
+        {
+          "title": "Балкон, 2022 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Балкон_дома_52_на_проспекте_Мира.png",
+          "date": "2022-08-06",
+          "license": "CC-BY-SA-4.0"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira52",
+        "template": "arched-bow-balconies",
+        "floorHeight": 4.05,
+        "wingBays": 9,
+        "windowWidth": 0.54,
+        "windowShape": "arch",
+        "colors": {
+          "wall": "#c8cba2",
+          "trim": "#f3ecdc",
+          "accent": "#a2a68b",
+          "roof": "#969c85"
+        },
+        "details": {
+          "balconies": true,
+          "awnings": false,
+          "parapet": false,
+          "ornament": true,
+          "rustication": true,
+          "shutters": true,
+          "turret": true
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два этажа с угловыми аттиками; башенки не увеличивают этажность основного корпуса."
+      }
+    },
+    {
+      "id": "mira51",
+      "osmId": "way/394353589",
+      "title": "Проспект Мира, 51",
+      "subtitle": "Жёлтый фасад, арочный проезд и крытый балкон",
+      "frontEdge": [
+        2,
+        3
+      ],
+      "secondaryFaces": [],
+      "note": "По фото 17.01.2020: охристые стены, белые наличники, арочный проезд и центральный балкон с навесом. Высоты и скрытые стены приблизительны. Проезд пока показан как деталь фасада, вход во двор не реализован.",
+      "sources": [
+        {
+          "title": "Фасад, 2020 · Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/File:%D0%9F%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82_%D0%9C%D0%B8%D1%80%D0%B0_51,_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BA%D0%B0%D0%B2%D0%BA%D0%B0%D0%B7.jpg"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira51",
+        "template": "ochre-archway",
+        "floorHeight": 3.6,
+        "wingBays": 12,
+        "windowWidth": 0.58,
+        "windowShape": "rect",
+        "colors": {
+          "wall": "#cca654",
+          "trim": "#f1e5ce",
+          "accent": "#8a7d59",
+          "roof": "#686d61"
+        },
+        "details": {
+          "balconies": true,
+          "awnings": true,
+          "parapet": false,
+          "ornament": true,
+          "rustication": true,
+          "shutters": false,
+          "turret": false
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два невысоких этажа. На фото у общей границы карниз заметно ниже №53; отношение высот принято около 0,78."
+      },
+      "previousDefaults": [
+        {
+          "schemaVersion": 1,
+          "buildingId": "mira51",
+          "template": "ochre-archway",
+          "floorHeight": 3.85,
+          "wingBays": 12,
+          "windowWidth": 0.58,
+          "windowShape": "rect",
+          "colors": {
+            "wall": "#cca654",
+            "trim": "#f1e5ce",
+            "accent": "#8a7d59",
+            "roof": "#686d61"
+          },
+          "details": {
+            "balconies": true,
+            "awnings": true,
+            "parapet": false,
+            "ornament": true,
+            "rustication": true,
+            "shutters": false,
+            "turret": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "mira53",
+      "osmId": "way/331713886",
+      "title": "Проспект Мира, 53 · «Гигант»",
+      "subtitle": "Две центральные арки, балкон на колоннах и шпили",
+      "frontEdge": [
+        6,
+        8
+      ],
+      "secondaryFaces": [],
+      "note": "Кинотеатр «Гигант». Облик по фото 17.01.2020: кирпичная кладка, две центральные арки, балкон на тонких колоннах и высокие аттики со шпилями. Высоты, крыша и дворовые стены приблизительны; текущие арендаторы не подтверждены.",
+      "sources": [
+        {
+          "title": "Фасад, 2020 · Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/File:%D0%9F%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82_%D0%9C%D0%B8%D1%80%D0%B0_53,_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BA%D0%B0%D0%B2%D0%BA%D0%B0%D0%B7.jpg"
+        },
+        {
+          "title": "Балкон и аттики, 2020 · Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/File:%D0%9F%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82_%D0%9C%D0%B8%D1%80%D0%B0_53_%D0%B2%D0%BE_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BA%D0%B0%D0%B2%D0%BA%D0%B0%D0%B7%D0%B5.jpg"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira53",
+        "template": "cinema-pinnacles",
+        "floorHeight": 4.6,
+        "wingBays": 12,
+        "windowWidth": 0.58,
+        "windowShape": "rect",
+        "colors": {
+          "wall": "#98644a",
+          "trim": "#cbb99b",
+          "accent": "#704939",
+          "roof": "#7b6855"
+        },
+        "details": {
+          "balconies": true,
+          "awnings": false,
+          "parapet": false,
+          "ornament": true,
+          "rustication": true,
+          "shutters": false,
+          "turret": true
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два высоких этажа кинотеатра и шпили. По соседству с №51 карниз должен быть выше; отношение принято около 1,28."
+      },
+      "previousDefaults": [
+        {
+          "schemaVersion": 1,
+          "buildingId": "mira53",
+          "template": "cinema-pinnacles",
+          "floorHeight": 4.25,
+          "wingBays": 12,
+          "windowWidth": 0.58,
+          "windowShape": "rect",
+          "colors": {
+            "wall": "#98644a",
+            "trim": "#cbb99b",
+            "accent": "#704939",
+            "roof": "#7b6855"
+          },
+          "details": {
+            "balconies": true,
+            "awnings": false,
+            "parapet": false,
+            "ornament": true,
+            "rustication": true,
+            "shutters": false,
+            "turret": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "mira54",
+      "osmId": "relation/4851706",
+      "title": "Проспект Мира, 54",
+      "subtitle": "Светлые пилястры, кованые балконы и фигурные аттики",
+      "frontEdge": [
+        0,
+        1
+      ],
+      "secondaryFaces": [
+        {
+          "frontEdge": [
+            6,
+            0
+          ],
+          "role": "corner",
+          "label": "Угол Кирова"
+        },
+        {
+          "frontEdge": [
+            5,
+            6
+          ],
+          "role": "return",
+          "label": "Улица Кирова"
+        }
+      ],
+      "note": "Бывший «Гранд-отель»: главный фасад и сторона Кирова по фото 2016/2022 годов. Светлая штукатурка, рустовка, пилястры, балконы и округлые аттики. На фото 2022 крыша в ремонте; здесь её завершение оценочное. Исходный внутренний двор сохранён.",
+      "sources": [
+        {
+          "title": "Проспект Мира, 2022 · Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/File:%D0%9F%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82_%D0%9C%D0%B8%D1%80%D0%B0,_54,_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BA%D0%B0%D0%B2%D0%BA%D0%B0%D0%B7.png"
+        },
+        {
+          "title": "Улица Кирова, 2022 · Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B8%D1%80%D0%BE%D0%B2%D0%B0_38,_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BA%D0%B0%D0%B2%D0%BA%D0%B0%D0%B7.png"
+        },
+        {
+          "title": "Угол здания, 2016 · Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/File:%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BA%D0%B0%D0%B2%D0%BA%D0%B0%D0%B7,_%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82_%D0%9C%D0%B8%D1%80%D0%B0,_54.jpg"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira54",
+        "template": "grand-hotel",
+        "floorHeight": 4.1,
+        "wingBays": 12,
+        "windowWidth": 0.58,
+        "windowShape": "rect",
+        "colors": {
+          "wall": "#d8cbaa",
+          "trim": "#f4eddb",
+          "accent": "#a79a7f",
+          "roof": "#838878"
+        },
+        "details": {
+          "balconies": true,
+          "awnings": false,
+          "parapet": false,
+          "ornament": true,
+          "rustication": true,
+          "shutters": false,
+          "turret": false
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два этажа основного фасада. Стропила реконструкции на фото 2022 не приняты за постоянный третий этаж."
+      }
+    },
+    {
+      "id": "mira55",
+      "osmId": "way/202259074",
+      "title": "Проспект Мира, 55",
+      "subtitle": "Кирпичные карнизы, балконы и округлая надстройка",
+      "frontEdge": [
+        5,
+        6
+      ],
+      "secondaryFaces": [
+        {
+          "frontEdge": [
+            6,
+            7
+          ],
+          "role": "corner-a",
+          "label": "Угол · южная грань"
+        },
+        {
+          "frontEdge": [
+            7,
+            8
+          ],
+          "role": "corner",
+          "label": "Угол Кирова"
+        },
+        {
+          "frontEdge": [
+            8,
+            9
+          ],
+          "role": "corner-b",
+          "label": "Угол · северная грань"
+        },
+        {
+          "frontEdge": [
+            9,
+            0
+          ],
+          "role": "return",
+          "label": "Улица Кирова"
+        }
+      ],
+      "note": "Второй корпус бывшего «Гранд-отеля», Мира, 55 / Кирова, 36. Фасад и угловая надстройка по фото 09.07.2022: красный кирпич, белые рамы, балконы и круглое окно. Северная сторона, высоты и глубина надстройки приблизительны; форма угла взята из OSM.",
+      "sources": [
+        {
+          "title": "Фасад, 2022 · Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/File:%D0%9F%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82_%D0%9C%D0%B8%D1%80%D0%B0,_55,_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BA%D0%B0%D0%B2%D0%BA%D0%B0%D0%B7.png"
+        },
+        {
+          "title": "Угловая надстройка, 2022 · Wikimedia Commons",
+          "url": "https://commons.wikimedia.org/wiki/File:%D0%94%D0%BE%D0%BC_%E2%84%96_55_%D0%BD%D0%B0_%D0%9F%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%D0%B5_%D0%9C%D0%B8%D1%80%D0%B0,_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BA%D0%B0%D0%B2%D0%BA%D0%B0%D0%B7.png"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "buildingId": "mira55",
+        "template": "brick-drum",
+        "floorHeight": 4.15,
+        "wingBays": 9,
+        "windowWidth": 0.58,
+        "windowShape": "rect",
+        "colors": {
+          "wall": "#ab7150",
+          "trim": "#eadfc9",
+          "accent": "#79503e",
+          "roof": "#7b7564"
+        },
+        "details": {
+          "balconies": true,
+          "awnings": false,
+          "parapet": false,
+          "ornament": true,
+          "rustication": true,
+          "shutters": false,
+          "turret": true
+        }
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "note": "Два этажа основного корпуса и локальная угловая надстройка; её окна не повторяются по всему зданию."
+      }
+    },
+    {
+      "id": "theatre",
+      "title": "Театр имени Е. Вахтангова",
+      "subtitle": "Три входа, часы и лиры",
+      "osmId": "way/165503117",
+      "frontEdge": [
+        8,
+        9
+      ],
+      "frontLabel": "Главный фасад · площадь Ленина",
+      "eyebrow": "ПЛОЩАДЬ ЛЕНИНА, 3",
+      "secondaryFaces": [
+        {
+          "frontEdge": [
+            6,
+            7
+          ],
+          "role": "return",
+          "label": "Южное крыло · боковой фасад"
+        },
+        {
+          "frontEdge": [
+            5,
+            6
+          ],
+          "role": "stage",
+          "label": "Западный корпус · приближённо"
+        }
+      ],
+      "note": "Фасад по фотографиям 2009 и 2022 годов: три входа, балкон, часы и две лиры. Два основных этажа и верхний оконный ярус в поднятой середине; боковые крылья ниже. Высоты в метрах, глубина объёмов и скрытые стены оценочные.",
+      "sources": [
+        {
+          "title": "Главный фасад, 2022 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Театр_имени_Е._Вахтангова,_Владикавказ.png",
+          "date": "2022-08-21",
+          "license": "CC-BY-SA-4.0"
+        },
+        {
+          "title": "Фасад до перекраски · Rartat, загружено в 2009",
+          "url": "https://commons.wikimedia.org/wiki/File:TeatrVlad.jpg",
+          "date": "2009-11-09",
+          "license": "Public domain"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "floorHeight": 4.2,
+        "wingBays": 3,
+        "windowWidth": 0.6,
+        "windowShape": "rect",
+        "colors": {
+          "wall": "#c48d82",
+          "trim": "#e9e8db",
+          "accent": "#858a95",
+          "roof": "#777e72"
+        },
+        "details": {
+          "balconies": true,
+          "awnings": false,
+          "parapet": false,
+          "ornament": true,
+          "rustication": true,
+          "shutters": false,
+          "turret": false
+        },
+        "buildingId": "theatre",
+        "template": "theatre-clock"
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          2,
+          3,
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "label": "2 основных этажа + верхний оконный ярус в центре; крылья — 2 этажа",
+        "note": "На главном фасаде три оконных яруса только в поднятой средней части. Верхний ярус ниже основных. Крылья двухэтажные; лиры и фронтоны не считаются отдельным этажом. Высоты и скрытые объёмы оценочные."
+      }
+    },
+    {
+      "id": "officers",
+      "title": "Дом офицеров",
+      "subtitle": "Высокий фасад и протяжённый двухэтажный корпус",
+      "osmId": "way/332179770",
+      "frontEdge": [
+        2,
+        3
+      ],
+      "frontLabel": "Главный фасад · площадь Ленина",
+      "eyebrow": "ПЛОЩАДЬ ЛЕНИНА, 1",
+      "secondaryFaces": [
+        {
+          "frontEdge": [
+            1,
+            2
+          ],
+          "role": "return",
+          "label": "Южный боковой фасад"
+        }
+      ],
+      "note": "Условно восстановленный облик бывшего Общественного собрания и гостиницы «Бристоль». Три этажа со стороны площади, два в длинном корпусе с высокими окнами зала. Силуэт сверен с архивным видом, боковые проёмы — с фото 2022 года. На современном снимке главный фасад закрыт сеткой; его мелкий декор, цвета, кровля и высоты реконструированы приблизительно. Это не изображение нынешнего состояния здания.",
+      "sources": [
+        {
+          "title": "Открытые боковые стены, 2022 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Здание_общественного_собрания_на_площади_Ленина,_Владикавказ.png",
+          "date": "2022-07-29",
+          "license": "CC-BY-SA-4.0"
+        },
+        {
+          "title": "Боковые оконные ярусы, 2022 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Здание_общественного_собрания_на_площади_Ленина_во_Владикавказе.png",
+          "date": "2022-07-29",
+          "license": "CC-BY-SA-4.0"
+        },
+        {
+          "title": "Главный фасад под сеткой, 2022 · Rartat",
+          "url": "https://commons.wikimedia.org/wiki/File:Дом_офицеров_во_Владикавказе.png",
+          "date": "2022-08-21",
+          "license": "CC-BY-SA-4.0"
+        },
+        {
+          "title": "Архивный вид площади, до 1957 года",
+          "url": "https://ru.wikipedia.org/wiki/Файл:Площадь_Ленина_во_Владикавказе_до_1957_года.png",
+          "date": "before-1957",
+          "license": "Non-free; reference only; not shipped"
+        }
+      ],
+      "config": {
+        "schemaVersion": 1,
+        "floorHeight": 4.0,
+        "wingBays": 8,
+        "windowWidth": 0.56,
+        "windowShape": "rect",
+        "colors": {
+          "wall": "#c8b69b",
+          "trim": "#e6ddc9",
+          "accent": "#a9967e",
+          "roof": "#7d7c6d"
+        },
+        "details": {
+          "balconies": true,
+          "awnings": false,
+          "parapet": true,
+          "ornament": true,
+          "rustication": true,
+          "shutters": false,
+          "turret": false
+        },
+        "buildingId": "officers",
+        "template": "officers-assembly"
+      },
+      "elevation": {
+        "reviewed": "2026-11-15",
+        "storeys": [
+          3,
+          2
+        ],
+        "storeysStatus": "photo-checked",
+        "heightStatus": "estimated",
+        "label": "3 этажа со стороны площади · 2 в длинном корпусе",
+        "note": "Трёхэтажный парадный объём подтверждён архивным видом, двухэтажные боковые стены видны на фото 2022 года. Главный фасад 2022 года закрыт сеткой с напечатанными окнами: её рисунок не принят за точный обмер. Условная реконструкция без руин; граница объёмов по глубине и кровля оценочные."
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "asset": "alexandrovsky",
+  "pixelsPerMeter": 25,
+  "anchor": [
+    551.0004,
+    551.2533
+  ],
+  "cameraElevationDegrees": 30,
+  "cameraAzimuthDegrees": 45,
+  "source": "assets/blender/alexandrovsky.blend",
+  "gameOrigin": [
+    -108,
+    0,
+    -672
+  ],
+  "size": [
+    1101,
+    802
+  ],
+  "file": "alexandrovsky.webp"
+}

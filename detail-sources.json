@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "lenin-square-crafted-detail-v1",
+  "geography": {
+    "source": "OpenStreetMap",
+    "attribution": "© OpenStreetMap contributors, ODbL",
+    "hotel": "https://www.openstreetmap.org/way/165504111",
+    "monument": "https://www.openstreetmap.org/node/1770438061",
+    "coordinates": "Prepared district local metre grid; +Y up, -Z north"
+  },
+  "visualReference": {
+    "source": "User-provided screenshot and browser study of Google Street View, Mira Avenue near Lenin Square",
+    "panoramaId": "TbitbAVhQZ13Kgc8f7KLqg",
+    "displayedCaptureDate": "2019-09",
+    "use": "Visual study of proportions, architectural motifs and street furniture"
+  },
+  "assets": {
+    "method": "Original Blender-authored hotel GLB, procedural Three.js street geometry and Canvas-authored textures",
+    "hotelSource": "assets/blender/alexandrovsky.blend",
+    "hotelRuntime": "models/alexandrovsky.glb",
+    "hotelAuthoringRecipe": "scripts/blender/create-alexandrovsky.py",
+    "googleImageryInAssets": false,
+    "googleMeshesInAssets": false,
+    "googleApiRequired": false
+  },
+  "limitations": [
+    "Stylized interpretation; heights and facade ornament are approximate.",
+    "Street furniture, planting and parked cars are an illustrative arrangement.",
+    "Neighbouring facade modules are generic; individual historic facades remain to be surveyed.",
+    "The statue is a simplified original silhouette.",
+    "The 2019 reference does not establish the current appearance of the square."
+  ]
+}

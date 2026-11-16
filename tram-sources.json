@@ -1,0 +1,23 @@
+{
+  "reviewed": "2026-11-16",
+  "model": "Simplified 71-412, livery after Vladikavkaz car 485. Estimated dimensions 16.5 x 2.5 m.",
+  "sources": [
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:71_-_412_на_повороте_с_Кирова_на_проспект_Мира.jpg",
+      "author": "Rartat",
+      "date": "2023-05-30",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "observed": "Blue body, red lower insert, white roof, continuous dark glazing and red pantograph."
+    },
+    {
+      "url": "https://www.vladtramvai.ru/?p=24991",
+      "image": "https://expert-poisk.ru/subdomain_files/article-album/3811/60167.jpeg",
+      "published": "2024-10-17",
+      "license": "Reference only; not redistributed",
+      "observed": "Wide front windscreen, twin vertical headlight clusters, tapering dark front mask, coupler; photographed vehicle 488."
+    }
+  ],
+  "usage": "Original procedural Canvas drawing, no source pixels shipped. Front and side photos of different wagons of the same model inform a stylised representation, not a precise technical drawing.",
+  "route": "Existing east track only. Kirova, Dzhanaeva, Teatralnaya square, then fades at model edge and starts the next pass. Gameplay timings, not a real service timetable. No real route number asserted."
+}
