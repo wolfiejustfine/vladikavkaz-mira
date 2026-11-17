@@ -240,7 +240,7 @@ export function groundSprite(){
     }
   },11);
 }
-export function drawPerson(c,x,y,scale,time,moving,color='#c99742',facing=1,ghost=false) {
+export function drawPerson(c,x,y,scale,time,moving,color='#c99742',facing=1,ghost=false,look={}) {
   c.save();c.translate(x,y);c.scale(scale,scale);const step=moving?Math.sin(time*10)*.17:0,bob=moving?Math.abs(Math.sin(time*10))*.065:0;
   if(!ghost){c.fillStyle='#264e452b';c.beginPath();c.ellipse(0,0,.7,.28,0,0,Math.PI*2);c.fill();}
   c.translate(0,-bob);c.lineCap='round';c.lineJoin='round';
@@ -252,5 +252,7 @@ export function drawPerson(c,x,y,scale,time,moving,color='#c99742',facing=1,ghos
   c.fillStyle=ghost?'#fff0b9':'#edc59a';c.beginPath();c.roundRect(-.39,-2.82,.78,.8,.25);c.fill();
   c.fillStyle=ghost?'#c49f50':'#41473b';c.beginPath();c.roundRect(-.42,-2.92,.84,.35,.17);c.fill();c.fillRect(-.42,-2.7,.16,.3);
   if(!ghost){c.fillStyle='#2e4943';c.fillRect(facing*.17-.04,-2.5,.075,.085);c.fillStyle='#497e73';c.beginPath();c.roundRect(facing>0?-.55:.22,-1.96,.32,.85,.09);c.fill();}
+  if(!ghost&&look?.hat){c.fillStyle='#d5bb8d';c.fillRect(-.5,-2.94,1,.13);c.beginPath();c.roundRect(-.32,-3.24,.64,.36,.1);c.fill();}
+  if(!ghost&&look?.bag){c.fillStyle='#6b5544';c.fillRect(-.58,-1.5,.33,.7);c.strokeStyle='#bca179';c.lineWidth=.06;c.beginPath();c.moveTo(-.4,-2);c.lineTo(.38,-1.14);c.stroke();}
   c.restore();
 }

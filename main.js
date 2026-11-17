@@ -1,3 +1,7 @@
+import {achievementProgress,newlyEarned,badgeChip} from './achievements.js';
+import {createJournalView} from './quest-journal.js';
+import {QUESTS,questObjective,createQuestJournal} from './quests.js';
+import {NPCS,npcPoi,WALKERS,walkerAtTime} from './people.js';
 import {createTouchControls} from './touch-controls.js';
 import {rotateTramPoint,tramRenderYaw,TRAM_CACHE_LIMIT} from './tram-geometry.js';
 import {PLAYER_SPEED,PLAYER_SPAWN,canBoard,doorsOpen,landingPoint,shouldExit} from './passenger.js';
@@ -9,7 +13,7 @@ import {buildingSprite,pineSprite,alleyTreeSprite,shrubSprite,benchSprite,alleyL
 import {facadeSprite,frontFrame,facadeView} from './facades.js';
 import {createFacadeEditor} from './facade-editor.js';
 import {tramPosition} from './avenue.js';
-import {LANDSCAPE_PROPS,MONUMENT,MONUMENT_FOOTPRINT,FOUNTAIN,SQUARE_WALKER_ROUTE,promenadeX} from './landscape.js';
+import {LANDSCAPE_PROPS,MONUMENT,MONUMENT_FOOTPRINT,FOUNTAIN,promenadeX} from './landscape.js';
 
 const $=id=>document.getElementById(id),canvas=$('city'),ctx=canvas.getContext('2d',{alpha:false});
 const startedAt=performance.now(),keys=new Set(),visited=new Set();
@@ -19,8 +23,10 @@ const camera={x:SPAWN.x-10,y:SPAWN.y-22};
 const entities=[],colliders=[],sprites=new Set(),poiHits=[],drawTimes=[],intervals=[];
 let width=0,height=0,dpr=1,ppm=11,frame=0,lastTime=0,hint=null,toastTimer,readyMs=0;
 let ground,hotel,tram,nearest=null,district,editor,minimap;
-let northHeading=null,ride=null,boardable=null,mobile=null;
+let northHeading=null,ride=null,boardable=null,mobile=null,selectedDestination=null,journalView,lastQuestStage='';
+const navigationTarget=()=>POIS.find(p=>p.id===(selectedDestination||questObjective(quests.snapshot())))||null;
 mobile=createTouchControls({enabled:()=>state.ready&&!state.paused&&!ride,onAction:interact});
+const quests=createQuestJournal({getItem:key=>localStorage.getItem(key),setItem:(key,value)=>localStorage.setItem(key,value)});
 const cityAudio=createCityAudio($('city-sound'));
 const fleet=()=>[tramPosition(state.time,-1),tramPosition(state.time,1)];
 const hotelViews=new Map(),facadeDefinitions=new Map();
@@ -35,9 +41,7 @@ const POIS=[
   {id:'fountain',x:FOUNTAIN.x+6.4,y:FOUNTAIN.y,height:1.6,radius:5,title:'Танцующий Сослан',eyebrow:'ФОНТАН НА ПЛОЩАДИ ЛЕНИНА',
     text:'В центре круглого фонтана — нарт Сослан, танцующий на чаше Уацамонга. Вокруг фигурного основания расположены скульптурные водомёты. Зелёная патина бронзы контрастирует с красноватым камнем борта.',
     observe:'Обойдите фонтан по круговой дорожке. Рассмотрите поднятое колено Сослана, орнамент чаши и изгибы водомётов. В игре формы стилизованы, размеры оценочные.',source:'https://commons.wikimedia.org/wiki/File:Vladikavkaz_Pamiatnik_David-Soslan.JPG'},
-  {id:'guide',x:25,y:64,height:3.4,title:'Поговорить с Азаматом',eyebrow:'ЗНАКОМСТВО С ПЛОЩАДЬЮ',radius:6,
-    text:'«Привет! Давай начнём с гостиницы. Найди большие арочные окна, потом пройдём к памятнику. Здесь интереснее гулять, если замечать детали».\n\nАзамат — вымышленный персонаж нашей прогулки.',
-    observe:'Клавиши WASD или стрелки двигают героя относительно экрана. Колесо мыши меняет масштаб.'}
+  ...NPCS.map(npcPoi)
 ];
 function makeEntity(id,x,y,sprite,polygon,solid=true,holes=[]) {
   const e={id,x,y,sprite,polygon,bounds:bounds(polygon)};entities.push(e);sprites.add(sprite);
@@ -56,16 +60,71 @@ function updateDiscovery(){
   $('discovery-title').textContent=visited.size===POIS.length?'Вы познакомились с площадью':'Арки, сквер и городские истории';
 }
 function reset(){clearInput();ride=null;state.time=0;state.x=SPAWN.x;state.y=SPAWN.y;state.heading=0;camera.x=SPAWN.x-10;camera.y=SPAWN.y-22;showToast('Вы снова на площади Ленина');}
-function pause(){if(!state.ready||$('place-dialog').open||$('pause-dialog').open||$('facade-dialog').open)return;clearInput();state.paused=true;$('pause-dialog').showModal();}
+function pause(){if(!state.ready||$('place-dialog').open||$('pause-dialog').open||$('facade-dialog').open||$('journal-dialog').open)return;clearInput();state.paused=true;$('pause-dialog').showModal();}
 function resume(){clearInput();state.paused=false;canvas.focus({preventScroll:true});}
 function openPlace(poi){
   if(state.paused||!state.ready)return;
   if(ride){showToast('Сначала выйдите из трамвая на остановке');return;}
   if(Math.hypot(state.x-poi.x,state.y-poi.y)>poi.radius){showToast('Подойдите ближе к отмеченному месту');return;}
   clearInput();state.paused=true;visited.add(poi.id);updateDiscovery();
+  if(poi.npc){openConversation(poi);return;}
+  if(quests.dispatch({type:'inspect',poi:poi.id},state,POIS)){showToast('Место осмотрено! Вернитесь к персонажу');updateQuestPanel();}
+  $('npc-quest').hidden=true;$('card-fiction').hidden=true;$('card-topics').hidden=true;$('card-observe-box').hidden=false;
   $('card-title').textContent=poi.title;$('card-eyebrow').textContent=poi.eyebrow;$('card-body').textContent=poi.text;$('card-observe').textContent=poi.observe;
   $('card-source').hidden=!poi.source;if(poi.source)$('card-source').href=poi.source;
-  $('place-dialog').showModal();
+  $('interact').hidden=true;$('place-dialog').showModal();
+}
+function openConversation(npc){
+  $('card-title').textContent=npc.name;$('card-eyebrow').textContent=npc.role.toUpperCase();
+  $('card-body').textContent=npc.greeting;$('card-source').hidden=true;$('card-observe-box').hidden=true;
+  const topics=$('card-topics');topics.hidden=false;topics.replaceChildren();
+  for(const [question,answer] of npc.topics){
+    const button=document.createElement('button');button.type='button';button.textContent=question;button.setAttribute('aria-pressed','false');
+    button.onclick=()=>{for(const b of topics.children)b.setAttribute('aria-pressed','false');button.setAttribute('aria-pressed','true');$('card-body').textContent=answer;};topics.append(button);
+  }
+  renderNpcQuest(npc);$('card-fiction').hidden=false;if(!$('place-dialog').open)$('place-dialog').showModal();
+}
+function renderNpcQuest(npc){
+  const q=QUESTS.find(q=>q.giver===npc.id),progress=quests.snapshot(),box=$('npc-quest');box.hidden=!q;box.replaceChildren();if(!q)return;
+  const title=document.createElement('strong');title.textContent=q.title;box.append(title);
+  const reward=achievementProgress(progress).find(a=>a.quest===q.id);if(reward)box.append(badgeChip(reward,progress.completed.includes(q.id)));
+  const text=document.createElement('p'),button=document.createElement('button');button.type='button';
+  if(progress.completed.includes(q.id)){text.textContent='✓ Поручение выполнено. '+q.thanks;box.append(text);return;}
+  const own=progress.active?.id===q.id;
+  if(own&&progress.active.stage==='return'){
+    text.textContent='Вы осмотрели нужное место. Расскажете о прогулке?';button.textContent='Завершить задание';
+    button.onclick=()=>{const before=quests.snapshot();if(quests.dispatch({type:'finish',id:q.id},state,POIS)){$('card-body').textContent=q.thanks;const rewards=newlyEarned(before,quests.snapshot());showToast('Получен'+(rewards.length>1?'ы значки: ':' значок: ')+rewards.map(a=>'«'+a.title+'»').join(', '));updateQuestPanel();renderNpcQuest(npc);if(rewards.length){const notice=document.createElement('p');notice.className='reward-notice';notice.setAttribute('role','status');notice.textContent='Награда: '+rewards.map(a=>'«'+a.title+'»').join(', ')+'. Все значки — в журнале.';$('npc-quest').append(notice);}}};
+  }else if(own){text.textContent='Сначала осмотрите '+POIS.find(p=>p.id===q.target).title+', затем возвращайтесь ко мне.';box.append(text);return;}
+  else if(progress.active){text.textContent='Сначала закончите текущее поручение или отмените его в панели задания.';box.append(text);return;}
+  else{text.textContent=q.offer;button.textContent='Взять задание';button.onclick=()=>{if(quests.dispatch({type:'accept',id:q.id},state,POIS)){updateQuestPanel();renderNpcQuest(npc);showToast('Задание принято. Цель отмечена золотым');}};}
+  box.append(text,button);
+}
+function updateQuestPanel(){
+  const p=quests.snapshot(),q=QUESTS.find(q=>q.id===p.active?.id),target=POIS.find(poi=>poi.id===questObjective(p));
+  document.documentElement.classList.toggle('quest-active',!!q);$('quest-panel').hidden=!q;$('quest-total').textContent=`Журнал · ${p.completed.length} / ${QUESTS.length}`;
+  const stage=[p.active?.id,p.active?.stage].join(':');if(stage!==lastQuestStage){selectedDestination=null;lastQuestStage=stage;}
+  if(!q||!target)return;
+  const label=(p.active.stage==='inspect'?'Осмотрите: ':'Вернитесь: ')+(target.name||target.title);
+  if($('quest-goal').textContent!==label)$('quest-goal').textContent=label;
+  $('quest-step').textContent=p.active.stage==='inspect'?'1 / 2 · Найдите и откройте карточку':'2 / 2 · Поговорите и завершите задание';
+  const dx=target.x-state.x,dy=target.y-state.y,dir=project(dx,dy),angle=Math.atan2(dir.y,dir.x)*180/Math.PI;
+  $('quest-arrow').style.transform=`rotate(${angle}deg)`;$('quest-distance').textContent=Math.round(Math.hypot(dx,dy))+' м';
+  $('quest-save').hidden=quests.isSaved();
+}
+function openJournal(){
+  if(!state.ready||state.paused)return;clearInput();state.paused=true;journalView.render();$('journal-dialog').showModal();
+}
+function navigateTo(id){
+  const poi=POIS.find(p=>p.id===id);if(!poi)return;
+  selectedDestination=id;$('journal-dialog').close();
+  showToast((poi.name||poi.title)+' отмечен на мини-карте');
+}
+function updateNavigation(){
+  const target=navigationTarget();$('minimap-destination').hidden=!target;
+  if(!target)return;
+  const distance=Math.round(Math.hypot(target.x-state.x,target.y-state.y)),text=(target.name||target.title)+' · '+distance+'\u00a0м';
+  if($('destination-name').textContent!==text)$('destination-name').textContent=text;
+  $('destination-clear').hidden=!selectedDestination;
 }
 function closePlace(){$('place-dialog').close();}
 function followTarget(){
@@ -95,9 +154,10 @@ function update(dt){
   const t=1-Math.exp(-dt*3.5),target=followTarget();camera.x+=(target.x-camera.x)*t;camera.y+=(target.y-camera.y)*t;
   const north=state.y<-22;
   if(north!==northHeading){northHeading=north;$('title').textContent=north?'Проспект Мира':'Площадь Ленина';document.querySelector('.place-heading>span').textContent=north?'Две стороны проспекта · фасады и истории':'Знакомый город. Новый ракурс.';}
-  nearest=POIS.filter(p=>Math.hypot(state.x-p.x,state.y-p.y)<=p.radius).sort((a,b)=>Math.hypot(state.x-a.x,state.y-a.y)-Math.hypot(state.x-b.x,state.y-b.y))[0]||null;
+  const goal=questObjective(quests.snapshot());
+  nearest=POIS.filter(p=>Math.hypot(state.x-p.x,state.y-p.y)<=p.radius).sort((a,b)=>Number(b.id===goal)-Number(a.id===goal)||Number(!!b.npc)-Number(!!a.npc)||Math.hypot(state.x-a.x,state.y-a.y)-Math.hypot(state.x-b.x,state.y-b.y))[0]||null;
   if(nearest!==hint){hint=nearest;if(nearest)$('interact-title').textContent=nearest.title;}
-  updateTransit();
+  updateTransit();updateQuestPanel();
 }
 function interact(){if(!state.ready||state.paused)return;if(!transitAction()&&nearest)openPlace(nearest);}
 function exitTram(travel){
@@ -126,17 +186,20 @@ function updateTransit(){
   }else if(boardable){status=boardable.stop.name+' · '+(boardable.direction===-1?'в сторону Кирова':'к площади Ленина');action='Сесть в трамвай';}
   if($('tram-status').textContent!==status)$('tram-status').textContent=status;
   if($('tram-action-label').textContent!==action)$('tram-action-label').textContent=action;
-  mobile.setAction(ride?(doorsOpen(tramPosition(state.time,ride.direction))?'Выйти':ride.exitRequested?'Отменить выход':'Следующая остановка'):boardable?'Сесть':nearest?'Осмотреть':'Подойдите ближе',!!ride||!!boardable||!!nearest);
+  mobile.setAction(ride?(doorsOpen(tramPosition(state.time,ride.direction))?'Выйти':ride.exitRequested?'Отменить выход':'Следующая остановка'):boardable?'Сесть':nearest?(nearest.npc?'Поговорить':'Осмотреть'):'Подойдите ближе',!!ride||!!boardable||!!nearest);
 }
 function personEntity(id,x,y,color,time,moving=false,facing=1){return{id,x,y,bounds:bounds(rect(x,y,.7,.7)),person:{color,time,moving,facing}};}
-function drawPersonEntity(e,ghost=false){const p=toScreen(e.x,e.y);ctx.globalAlpha=ghost?.58:1;drawPerson(ctx,p.x,p.y,ppm*1.12,e.person.time,e.person.moving,e.person.color,e.person.facing,ghost);ctx.globalAlpha=1;}
+function drawPersonEntity(e,ghost=false){const p=toScreen(e.x,e.y);ctx.globalAlpha=ghost?.58:1;drawPerson(ctx,p.x,p.y,ppm*1.12,e.person.time,e.person.moving,e.person.color,e.person.facing,ghost,e.look);ctx.globalAlpha=1;}
 function render(){
   ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle='#e7ecde';ctx.fillRect(0,0,width,height);
   drawSprite({x:0,y:0,sprite:ground});
   for(const e of entities)if(e.id.startsWith('tree')||e.id.startsWith('lamp'))drawShadow(e);
   const hero=personEntity('player',state.x,state.y,'#c99a43',state.time,state.walking,state.facing);
-  const [wa,wb]=SQUARE_WALKER_ROUTE,wt=(Math.sin(state.time*.13)+1)/2;
-  const pedestrians=[personEntity('guide',25,64,'#617f8c',0),personEntity('walker',wa[0]+(wb[0]-wa[0])*wt,wa[1]+(wb[1]-wa[1])*wt,'#ac6a53',state.time,true,Math.cos(state.time*.13)>0?1:-1)];
+  const pedestrians=NPCS.map(n=>({...personEntity(n.id,n.x,n.y,n.color,state.time,false,1),look:n.look}));
+  for(const w of WALKERS){
+    const p=walkerAtTime(w,state.time),q=toScreen(p.x,p.y);if(q.x< -80||q.x>width+80||q.y< -80||q.y>height+100)continue;
+    const projected=project(p.dx,p.dy);pedestrians.push({...personEntity(p.id,p.x,p.y,p.color,p.animationTime,p.moving,projected.x>=0?1:-1),look:p.look});
+  }
   const vehicles=fleet().map(travel=>{
     const yaw=tramRenderYaw(travel.yaw),footprint=rect(0,0,TRAM.width,TRAM.length).map(p=>{const [x,y]=rotateTramPoint(p,yaw);return [x+travel.x,y+travel.y];});
     return {id:'tram-'+travel.direction,x:travel.x,y:travel.y,bounds:bounds(footprint),sprite:vehicleSprite(travel,yaw),opacity:travel.opacity,travel};
@@ -159,12 +222,18 @@ function render(){
   if(!ride){ctx.strokeStyle=covered?'#fff1b9':'#f4edc8';ctx.lineWidth=1.5;ctx.beginPath();ctx.ellipse(p.x,p.y+1,ppm*.8,ppm*.35,0,0,Math.PI*2);ctx.stroke();}
   ctx.font='700 9px Arial';ctx.textAlign='center';ctx.fillStyle='#fff8e2';ctx.shadowColor='#244536';ctx.shadowBlur=3;if(!ride||tramPosition(state.time,ride.direction).phase!=='stopped')ctx.fillText(ride?'ВЫ В ТРАМВАЕ':'ВЫ',p.x,p.y-ppm*(ride?6.5:3.9));ctx.shadowBlur=0;
   poiHits.length=0;
+  const objective=navigationTarget()?.id;
   for(const poi of POIS){
+    const isGoal=poi.id===objective;
     const q=toScreen(poi.x,poi.y,poi.height+.3),near=poi===nearest;
     const bob=Math.sin(state.time*2+poi.x)*1.7;
+    if(isGoal){ctx.beginPath();ctx.arc(q.x,q.y+bob,17,0,Math.PI*2);ctx.strokeStyle='#c79a42';ctx.lineWidth=3;ctx.stroke();}
     ctx.fillStyle=visited.has(poi.id)?'#75945f':near?'#c39d56':'#f6f0da';ctx.strokeStyle=near?'#faf2d4':'#729075';ctx.lineWidth=1.5;
     ctx.beginPath();ctx.arc(q.x,q.y+bob,near?13:10,0,Math.PI*2);ctx.fill();ctx.stroke();
-    ctx.fillStyle=visited.has(poi.id)||near?'#fff8df':'#4d7057';ctx.font='bold 12px Arial';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(visited.has(poi.id)?'✓':poi.id==='guide'?'…':'i',q.x,q.y+bob);ctx.textBaseline='alphabetic';
+    ctx.fillStyle=visited.has(poi.id)||near?'#fff8df':'#4d7057';ctx.font='bold 12px Arial';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(isGoal?'!':visited.has(poi.id)?'✓':poi.npc?'…':'i',q.x,q.y+bob);ctx.textBaseline='alphabetic';
+    if(poi.npc&&Math.hypot(state.x-poi.x,state.y-poi.y)<18){
+      ctx.font='600 10px Arial';ctx.fillStyle='#f8f3df';ctx.shadowColor='#294d42';ctx.shadowBlur=3;ctx.fillText(poi.name,q.x,q.y+bob-18);ctx.shadowBlur=0;
+    }
     poiHits.push({poi,x:q.x,y:q.y+bob,r:18});
   }
   for(const {travel,x:tx,y:ty} of vehicles)if(travel.phase==='stopped'&&Math.hypot(state.x-tx,state.y-ty)<65){
@@ -180,13 +249,13 @@ function tick(now){
   const delta=lastTime?now-lastTime:16.67;lastTime=now;
   if(delta<150){intervals.push(delta);if(intervals.length>180)intervals.shift();}
   update(Math.min(delta/1000,.04));mobile.setPaused(state.paused);cityAudio.setQuiet(state.paused||document.hidden);cityAudio.updateTrams(state,fleet(),state.time);
-  const before=performance.now();lastRender=render();minimap?.draw(state,visited,now);drawTimes.push(performance.now()-before);if(drawTimes.length>180)drawTimes.shift();
+  const before=performance.now();lastRender=render();updateNavigation();minimap?.draw(state,visited,now,navigationTarget());drawTimes.push(performance.now()-before);if(drawTimes.length>180)drawTimes.shift();
   if(++frame%30===0&&!$('diagnostics').hidden){const s=snapshot();$('diagnostics').textContent=`Canvas 2D · один участок\n${s.fps} FPS · рисование p95 ${s.drawMsP95} мс\nОбъектов ${s.drawables} · спрайтов ${s.spriteCount}\nРастр + маски ≈ ${s.rasterMiB} МиБ\nx ${s.player.x} / y ${s.player.y}\nF3 — скрыть`;}
   requestAnimationFrame(tick);
 }
 function snapshot(){
   const ordered=[...drawTimes].sort((a,b)=>a-b),rasterBytes=[...new Set([...sprites,...hotelViews.values()])].reduce((s,a)=>s+a.image.width*a.image.height*4+(a.mask?.byteLength||0),0);
-  return {tramCacheSize:tram?.size||0,ride:ride?{...ride}:null,boardable:boardable?.stop.id||null,audio:cityAudio.snapshot(),trams:fleet(),tram:tramPosition(state.time),minimap:minimap?.snapshot(),heading:state.heading,view:getView()===-1?'southwest':'southeast',facades:editor?.configs(),ready:state.ready,paused:state.paused,player:{x:+state.x.toFixed(3),y:+state.y.toFixed(3),walking:state.walking},camera:{...camera},zoom:state.zoom,nearest:nearest?.id??null,visited:[...visited],covered:lastRender.covered,drawables:lastRender.drawables,spriteCount:sprites.size,rasterMiB:+(rasterBytes/1048576).toFixed(1),readyMs:Math.round(readyMs),fps:intervals.length?Math.round(1000/(intervals.reduce((a,b)=>a+b,0)/intervals.length)):0,drawMsP95:+(ordered[Math.floor(ordered.length*.95)]||0).toFixed(2),resources:performance.getEntriesByType('resource').map(r=>({name:r.name.split('/').slice(-2).join('/'),bytes:r.encodedBodySize}))};
+  return {achievements:achievementProgress(quests.snapshot()).filter(a=>a.earned).map(a=>a.id),navigation:navigationTarget()?.id||null,quests:quests.snapshot(),people:{walkers:WALKERS.map(w=>walkerAtTime(w,state.time)),npcs:NPCS.map(n=>({id:n.id,x:n.x,y:n.y}))},tramCacheSize:tram?.size||0,ride:ride?{...ride}:null,boardable:boardable?.stop.id||null,audio:cityAudio.snapshot(),trams:fleet(),tram:tramPosition(state.time),minimap:minimap?.snapshot(),heading:state.heading,view:getView()===-1?'southwest':'southeast',facades:editor?.configs(),ready:state.ready,paused:state.paused,player:{x:+state.x.toFixed(3),y:+state.y.toFixed(3),walking:state.walking},camera:{...camera},zoom:state.zoom,nearest:nearest?.id??null,visited:[...visited],covered:lastRender.covered,drawables:lastRender.drawables,spriteCount:sprites.size,rasterMiB:+(rasterBytes/1048576).toFixed(1),readyMs:Math.round(readyMs),fps:intervals.length?Math.round(1000/(intervals.reduce((a,b)=>a+b,0)/intervals.length)):0,drawMsP95:+(ordered[Math.floor(ordered.length*.95)]||0).toFixed(2),resources:performance.getEntriesByType('resource').map(r=>({name:r.name.split('/').slice(-2).join('/'),bytes:r.encodedBodySize}))};
 }
 window.__iso2dDebug=Object.freeze({snapshot,project:(x,y,z=0)=>toScreen(x,y,z),pois:()=>POIS.map(p=>({id:p.id,x:p.x,y:p.y,radius:p.radius})),colliders:()=>colliders.map(c=>({polygon:c.polygon,holes:c.holes}))});
 
@@ -260,7 +329,8 @@ async function boot(){
   $('open-facades').onclick=()=>{if(ride){showToast('Конструктор доступен после выхода из трамвая');return;}if(state.ready&&!state.paused)editor.open(nearest?.id);};
   $('view-toggle').onclick=()=>{if(state.ready&&!state.paused)changeView(-getView());};
   minimap=createMinimap($('minimap-canvas'),$('minimap-location'),{buildings:[...(district.contextBuildings||[]),...district.buildings],pois:POIS});
-  bakeScene();updateViewLabel();updateDiscovery();
+  journalView=createJournalView($('journal-dialog'),{progress:()=>quests.snapshot(),pois:POIS,onNavigate:navigateTo});
+  bakeScene();updateViewLabel();updateDiscovery();updateQuestPanel();
   const requestedHouse=new URLSearchParams(location.search).get('house');
   if(facadeDefinitions.has(requestedHouse)){changeView(facadeView(district.buildings.find(b=>b.id===requestedHouse),facadeDefinitions.get(requestedHouse)));focusHouse(requestedHouse);}
   const requestedPlace=new URLSearchParams(location.search).get('place');
@@ -273,9 +343,10 @@ window.addEventListener('resize',resize);
 window.addEventListener('keydown',e=>{
   if(!state.ready)return;
   if(e.code==='F3'){e.preventDefault();if(!e.repeat)$('diagnostics').hidden=!$('diagnostics').hidden;return;}
-  if($('place-dialog').open||$('pause-dialog').open||$('facade-dialog').open)return;
-  const controlled=['KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowLeft','ArrowDown','ArrowRight','ShiftLeft','ShiftRight','KeyE','KeyR','KeyQ','Escape','Equal','Minus'];
+  if($('place-dialog').open||$('pause-dialog').open||$('facade-dialog').open||$('journal-dialog').open)return;
+  const controlled=['KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowLeft','ArrowDown','ArrowRight','ShiftLeft','ShiftRight','KeyE','KeyR','KeyQ','KeyJ','Escape','Equal','Minus'];
   if(!controlled.includes(e.code))return;e.preventDefault();keys.add(e.code);if(e.repeat)return;
+  if(e.code==='KeyJ')openJournal();
   if(e.code==='KeyE')interact();
   if(e.code==='KeyQ')changeView(-getView());if(e.code==='KeyR')reset();if(e.code==='Escape')pause();if(e.code==='Equal')zoomBy(.1);if(e.code==='Minus')zoomBy(-.1);
 });
@@ -289,5 +360,9 @@ $('zoom-in').onclick=()=>zoomBy(.1);$('zoom-out').onclick=()=>zoomBy(-.1);$('res
 $('card-close').onclick=closePlace;$('card-x').onclick=closePlace;$('place-dialog').addEventListener('close',resume);
 $('resume').onclick=()=>$('pause-dialog').close();$('pause-reset').onclick=()=>{reset();$('pause-dialog').close();};$('pause-dialog').addEventListener('close',resume);
 $('tram-action').onclick=transitAction;
+$('quest-total').onclick=openJournal;
+$('journal-x').onclick=()=>{ $('journal-dialog').close(); };$('journal-close').onclick=()=>{ $('journal-dialog').close(); };$('journal-dialog').addEventListener('close',resume);
+$('destination-clear').onclick=()=>{selectedDestination=null;updateNavigation();};
+$('quest-cancel').onclick=()=>{quests.dispatch({type:'cancel'},state,POIS);updateQuestPanel();showToast('Поручение отменено');};
 $('retry').onclick=()=>location.reload();
 boot().catch(error=>{console.error(error);$('loading').querySelector('strong').textContent='Не удалось открыть площадь';$('loading').querySelector('p').textContent=error.message;$('loading').querySelector('.spinner').hidden=true;$('retry').hidden=false;});

@@ -3,12 +3,18 @@ import {PATHS,SQUARE,SQUARE_BEDS,SQUARE_FLOWERS,MONUMENT_FOOTPRINT,FOUNTAIN,FOUN
 export const MAP_DIAMETER_METRES=260;
 export function minimapPoint(x,y,player,size){const scale=size/MAP_DIAMETER_METRES;return{x:size/2+(x-player.x)*scale,y:size/2+(y-player.y)*scale};}
 
+// Fixed north-up projection. Distant destinations stay visible at the rim.
+export function minimapTarget(target,player,size){
+  if(!target)return null;
+  const p=minimapPoint(target.x,target.y,player,size),dx=p.x-size/2,dy=p.y-size/2,d=Math.hypot(dx,dy),radius=Math.max(0,size/2-12),ratio=d>radius?radius/d:1;
+  return {id:target.id,x:size/2+dx*ratio,y:size/2+dy*ratio,offscreen:d>radius,angle:Math.atan2(dy,dx),distance:Math.hypot(target.x-player.x,target.y-player.y)};
+}
 export function createMinimap(canvas,label,{buildings,pois}){
-  const c=canvas.getContext('2d'),samples=avenueSamples();let last=0,signature='',paintCount=0;
+  const c=canvas.getContext('2d'),samples=avenueSamples();let last=0,signature='',paintCount=0,lastTarget=null;
   const path=(ring,close=true)=>{ring.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y));if(close)c.closePath();};
-  function draw(player,visited,now){
+  function draw(player,visited,now,target=null){
     const size=canvas.clientWidth,dpr=Math.min(devicePixelRatio||1,2);
-    const next=[player.x.toFixed(2),player.y.toFixed(2),player.heading.toFixed(3),visited.size,size,dpr].join(':');
+    const next=[player.x.toFixed(2),player.y.toFixed(2),player.heading.toFixed(3),visited.size,size,dpr,target?.id||'',target?.x,target?.y].join(':');
     if(!size||next===signature||now-last<100)return;
     last=now;signature=next;paintCount++;
     const pixels=Math.round(size*dpr);if(canvas.width!==pixels){canvas.width=pixels;canvas.height=pixels;}
@@ -39,7 +45,14 @@ export function createMinimap(canvas,label,{buildings,pois}){
     c.setTransform(dpr,0,0,dpr,0,0);
     for(const poi of pois){
       const p=minimapPoint(poi.x,poi.y,player,size);if(Math.hypot(p.x-size/2,p.y-size/2)>size/2-13)continue;
-      c.beginPath();c.arc(p.x,p.y,2.7,0,Math.PI*2);c.fillStyle=visited.has(poi.id)?'#577443':'#faf4dd';c.fill();c.strokeStyle='#4f6c52';c.lineWidth=.8;c.stroke();
+      c.beginPath();c.arc(p.x,p.y,poi.npc?4:2.7,0,Math.PI*2);c.fillStyle=poi.npc?'#487b83':visited.has(poi.id)?'#577443':'#faf4dd';c.fill();c.strokeStyle='#4f6c52';c.lineWidth=.8;c.stroke();
+    }
+    lastTarget=minimapTarget(target,player,size);
+    if(lastTarget){
+      const p=lastTarget;c.save();c.translate(p.x,p.y);c.fillStyle='#d3a343';c.strokeStyle='#fff8df';c.lineWidth=2;
+      if(p.offscreen){c.rotate(p.angle);c.beginPath();c.moveTo(8,0);c.lineTo(-5,-6);c.lineTo(-3,0);c.lineTo(-5,6);c.closePath();c.fill();c.stroke();}
+      else{c.beginPath();c.arc(0,0,6,0,Math.PI*2);c.fill();c.stroke();c.fillStyle='#36584e';c.font='bold 10px Arial';c.textAlign='center';c.fillText('!',0,3);}
+      c.restore();
     }
     c.save();c.translate(size/2,size/2);c.rotate(player.heading);
     c.beginPath();c.moveTo(0,-8);c.lineTo(5.5,6);c.lineTo(0,3);c.lineTo(-5.5,6);c.closePath();c.fillStyle='#bc8833';c.fill();c.strokeStyle='#fff8df';c.lineWidth=1.7;c.stroke();c.restore();
@@ -48,5 +61,5 @@ export function createMinimap(canvas,label,{buildings,pois}){
     c.font='9px Arial';c.textAlign='center';c.fillStyle='#3c5945';c.fillText('50 м',size/2,y+13);c.restore();
     const text=player.y<-320?'Улица Кирова':player.y<-22?'Проспект Мира':'Площадь Ленина';if(label.textContent!==text)label.textContent=text;
   }
-  return {draw,snapshot:()=>({paintCount,diameterMetres:MAP_DIAMETER_METRES,northUp:true})};
+  return {draw,snapshot:()=>({paintCount,target:lastTarget,diameterMetres:MAP_DIAMETER_METRES,northUp:true})};
 }

@@ -6,20 +6,24 @@ export function stickVector(dx,dy,radius=42,dead=.12){
 }
 export function createTouchControls({enabled,onAction}){
   const root=document.documentElement,stick=document.getElementById('move-stick'),knob=document.getElementById('stick-knob'),action=document.getElementById('touch-action'),menu=document.getElementById('touch-menu');
-  let pointer=null,vector={x:0,y:0};
+  let pointer=null,actionPointer=null,vector={x:0,y:0};
   const coarse=matchMedia('(any-pointer: coarse)');
   const reveal=()=>{if(coarse.matches||navigator.maxTouchPoints>0)root.classList.add('touch-ui');};reveal();coarse.addEventListener('change',reveal);
   function closeMenu(){root.classList.remove('mobile-menu-open');menu.setAttribute('aria-expanded','false');}
-  function reset(){const id=pointer;pointer=null;vector={x:0,y:0};knob.style.transform='translate(0px,0px)';if(id!==null&&stick.hasPointerCapture(id))stick.releasePointerCapture(id);}
+  function reset(all=true){if(all){const actionId=actionPointer;actionPointer=null;if(actionId!==null&&action.hasPointerCapture(actionId))action.releasePointerCapture(actionId);}const id=pointer;pointer=null;vector={x:0,y:0};knob.style.transform='translate(0px,0px)';if(id!==null&&stick.hasPointerCapture(id))stick.releasePointerCapture(id);}
   function position(e){const r=stick.getBoundingClientRect(),dx=e.clientX-r.left-r.width/2,dy=e.clientY-r.top-r.height/2,radius=r.width*.32,n=Math.hypot(dx,dy)||1,k=Math.min(1,radius/n);vector=stickVector(dx,dy,radius);knob.style.transform=`translate(${dx*k}px,${dy*k}px)`;}
   stick.addEventListener('pointerdown',e=>{if(pointer!==null||!enabled()||e.button!==0)return;e.preventDefault();closeMenu();pointer=e.pointerId;stick.setPointerCapture(pointer);position(e);});
   stick.addEventListener('pointermove',e=>{if(e.pointerId!==pointer)return;e.preventDefault();if(!enabled()){reset();return;}position(e);});
-  for(const name of ['pointerup','pointercancel','lostpointercapture'])stick.addEventListener(name,e=>{if(e.pointerId===pointer)reset();});
+  for(const name of ['pointerup','pointercancel','lostpointercapture'])stick.addEventListener(name,e=>{if(e.pointerId===pointer)reset(false);});
   const activate=()=>{reset();closeMenu();onAction();};
-  action.addEventListener('pointerdown',e=>{if(e.button!==0||action.disabled)return;e.preventDefault();activate();});
-  // A second finger does not reliably generate click in mobile browsers.
-  // Keep synthetic/keyboard activation, without replaying the pointer action.
-  action.addEventListener('click',e=>{if(e.detail===0)activate();});
+  action.addEventListener('pointerdown',e=>{if(e.button!==0||action.disabled||actionPointer!==null)return;e.preventDefault();actionPointer=e.pointerId;action.setPointerCapture(e.pointerId);});
+  action.addEventListener('pointerup',e=>{if(e.pointerId!==actionPointer)return;e.preventDefault();actionPointer=null;
+    // Finish this tap before opening a dialog beneath the finger. Otherwise its
+    // synthesized click can immediately press the dialog's Continue button.
+    setTimeout(activate,0);
+  });
+  for(const name of ['pointercancel','lostpointercapture'])action.addEventListener(name,e=>{if(e.pointerId===actionPointer)actionPointer=null;});
+  action.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();if(e.detail===0)activate();});
   menu.addEventListener('click',()=>{reset();const open=root.classList.toggle('mobile-menu-open');menu.setAttribute('aria-expanded',String(open));});
   document.querySelector('.facade-actions').addEventListener('click',closeMenu);
   window.addEventListener('pointerdown',e=>{if(e.pointerType==='touch')root.classList.add('touch-ui');});
