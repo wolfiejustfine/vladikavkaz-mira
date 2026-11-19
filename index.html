@@ -2,16 +2,16 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#142b35" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <title>Владикавказ — истории на проспекте</title>
     <meta name="description" content="Прогуляйтесь по проспекту Мира, познакомьтесь с местным жителем и откройте истории Владикавказа. Интерактивная 3D-прогулка в браузере." />
-    <script type="module" crossorigin src="./assets/game-5E7lu2WA.js"></script>
+    <script type="module" crossorigin src="./assets/game-DDG6op_X.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-P2Xu9kJm.js">
     <link rel="modulepreload" crossorigin href="./assets/three-B0k_xZFU.js">
     <link rel="modulepreload" crossorigin href="./assets/physics-BR_-CEU_.js">
-    <link rel="stylesheet" crossorigin href="./assets/game-BhMVQp5R.css">
+    <link rel="stylesheet" crossorigin href="./assets/game-BLIiLcp3.css">
   </head>
   <body>
     <main id="app">
@@ -39,6 +39,7 @@
             <div><span class="keys"><kbd>Shift</kbd></span><span>быстрее</span></div>
             <div><span class="keys"><kbd>Esc</kbd></span><span>пауза</span></div>
           </div>
+          <p class="touch-help">Джойстик — движение · кнопка справа — действие · ↶ ↷ — поворот камеры</p>
           <div class="world-options"><p class="desktop-note">Клавиатура и мышь</p><label class="city-life-option"><input id="city-life-toggle" type="checkbox" checked disabled />Трамвай и прохожие</label><button id="settings-open" class="settings-open" disabled>Настройки</button></div>
           <details class="free-options" hidden><summary>Другие места и свободная прогулка</summary><div class="poi-section"><p>ВЫБРАТЬ ТОЧКУ СТАРТА</p><div id="poi-list" class="poi-list" aria-label="Точки старта прогулки"></div><label class="landmark-picker" for="landmark-select"><span>ОРИЕНТИРЫ</span><select id="landmark-select" disabled><option value="">Выбери здание…</option></select></label></div>
           <a id="photo-overview" class="photo-overview-link" href="./map.html">Открыть карту района <span>Места и улицы ↗</span></a></details>
@@ -66,6 +67,10 @@
         </aside></details>
         </aside>
       </section>
+      <div id="touch-controls" aria-label="Сенсорное управление">
+        <div id="touch-stick" role="group" aria-label="Джойстик движения"><span class="touch-cross" aria-hidden="true">＋</span><span id="touch-knob" aria-hidden="true"></span></div>
+        <button id="touch-action" type="button" disabled>Осмотреть</button>
+      </div>
 
       <div id="crosshair" class="crosshair" hidden aria-hidden="true"></div>
       <section id="iso-hud" class="iso-hud" hidden aria-label="Управление изометрической прогулкой">
