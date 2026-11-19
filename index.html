@@ -7,11 +7,11 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <title>Владикавказ — истории на проспекте</title>
     <meta name="description" content="Прогуляйтесь по проспекту Мира, познакомьтесь с местным жителем и откройте истории Владикавказа. Интерактивная 3D-прогулка в браузере." />
-    <script type="module" crossorigin src="./assets/game-DDG6op_X.js"></script>
+    <script type="module" crossorigin src="./assets/game-D1Vr6eb6.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-P2Xu9kJm.js">
     <link rel="modulepreload" crossorigin href="./assets/three-B0k_xZFU.js">
     <link rel="modulepreload" crossorigin href="./assets/physics-BR_-CEU_.js">
-    <link rel="stylesheet" crossorigin href="./assets/game-BLIiLcp3.css">
+    <link rel="stylesheet" crossorigin href="./assets/game-I4515y5m.css">
   </head>
   <body>
     <main id="app">
@@ -104,6 +104,8 @@
         <progress id="story-progress" max="5" value="0" aria-label="Прогресс истории"></progress>
       </aside>
       <div id="story-interact" class="story-interact" hidden><kbd>E</kbd><span id="story-interact-name">Поговорить</span></div>
+      <div id="npc-prompt" class="story-interact" hidden><kbd>E</kbd><span id="npc-prompt-name">Поговорить</span></div>
+      <dialog id="npc-dialog" class="story-dialog" aria-labelledby="npc-name"><p id="npc-role" class="story-dialog-eyebrow"></p><h2 id="npc-name"></h2><p id="npc-text" class="story-dialog-body" aria-live="polite"></p><div id="npc-topics" class="story-dialog-actions"></div><div class="story-dialog-actions"><button id="npc-close" type="button" class="story-choice main-choice">Продолжить прогулку</button></div></dialog>
       <button id="tram-interact" class="story-interact" type="button" hidden style="pointer-events:auto;cursor:pointer"><kbd>E</kbd><span id="tram-interact-label">Сесть в трамвай</span></button>
       <aside id="ride-hud" class="ride-hud" hidden><small>ПРОГУЛОЧНЫЙ ТРАМВАЙ</small><strong>Следующая — «Музей»</strong><span id="ride-time"></span><progress id="ride-progress" max="1" value="0" aria-label="Прогресс поездки"></progress><p>Осматривайтесь мышью · <kbd>E</kbd> выйти · <kbd>Esc</kbd> пауза</p></aside>
       <dialog id="story-dialog" class="story-dialog" aria-labelledby="story-dialog-title"><button id="story-dialog-close" class="story-dialog-close" aria-label="Закрыть и открыть меню">×</button><p id="story-dialog-eyebrow" class="story-dialog-eyebrow"></p><h2 id="story-dialog-title"></h2><p id="story-dialog-body" class="story-dialog-body"></p><a id="story-dialog-source" class="story-dialog-source" target="_blank" rel="noopener noreferrer" hidden></a><div id="story-dialog-actions" class="story-dialog-actions"></div></dialog>
