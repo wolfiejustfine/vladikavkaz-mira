@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "models": [
+    {
+      "id": "alexandrovsky",
+      "file": "alexandrovsky.glb",
+      "title": "Гранд-отель «Александровский»",
+      "position": [
+        -108,
+        0,
+        -672
+      ],
+      "yaw": 0,
+      "replaceFeatures": [
+        "way/165504111"
+      ],
+      "view": {
+        "label": "«Александровский»",
+        "position": [
+          -116,
+          0.9,
+          -646
+        ],
+        "yaw": -0.18,
+        "pitch": 0.24
+      },
+      "bytes": 2408780,
+      "sha256": "00a87ab92746add80c49e5916152ff9d8d45356dbbf894c87c24599fd71b6f5f",
+      "helpers": {
+        "col": 4,
+        "poi": 1,
+        "biz": 1,
+        "light": 2
+      }
+    }
+  ]
+}

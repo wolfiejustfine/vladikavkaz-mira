@@ -1,62 +1,110 @@
 <!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-  <meta name="description" content="Изометрическая прогулка по проспекту Мира во Владикавказе: площадь Ленина, исторические фасады и поездка на трамвае. Игра для компьютера и телефона.">
-  <meta name="theme-color" content="#e9eddf"/>
-  <title>Площадь Ленина · 2D-прогулка по Владикавказу</title>
-  <link rel="icon" href="./favicon.svg" type="image/svg+xml"/>
-  <link rel="stylesheet" href="./style.css"/>
-</head>
-<body>
-  <main id="app">
-    <canvas id="city" tabindex="0" aria-label="Изометрическая площадь Ленина. Передвигайтесь клавишами WASD или стрелками, E — осмотреть место, сесть в трамвай или выйти."></canvas>
-    <header class="topbar">
-      <a class="brand" href="./index.html" aria-label="На главный экран проекта"><svg viewBox="0 0 38 32" fill="none" aria-hidden="true"><path d="M2 27 12 9l7 10L27 4l9 23H2Z" stroke="currentColor" stroke-width="1.8"/><path d="m10 27 9-8 8 8" stroke="currentColor" stroke-width="1.8"/></svg><span>ВЛАДИКАВКАЗ<small>ИСТОРИИ НА ПРОСПЕКТЕ</small></span></a>
-      <div class="mode"><span></span>2D · ПРОБНАЯ ПРОГУЛКА</div>
-      <a class="compare" href="https://github.com/wolfiejustfine/vladikavkaz-mira" target="_blank" rel="noopener noreferrer">Проект на GitHub <span>↗</span></a>
-    </header>
-    <section class="place-heading" aria-labelledby="title"><p>ПРОСПЕКТ МИРА / 01</p><h1 id="title">Площадь Ленина</h1><span>Знакомый город. Новый ракурс.</span></section>
-    <div class="tools" aria-label="Управление видом"><button id="zoom-in" aria-label="Приблизить" title="Приблизить (+)">+</button><output id="zoom-label" aria-label="Масштаб">100%</output><button id="zoom-out" aria-label="Отдалить" title="Отдалить (−)">−</button><i></i><button id="reset" aria-label="Вернуться к началу" title="Вернуться к началу (R)">↶</button><button id="pause" aria-label="Пауза" title="Пауза (Esc)">Ⅱ</button></div>
-    <aside id="minimap" class="minimap" aria-label="Мини-карта, север сверху"><div class="minimap-disc"><canvas id="minimap-canvas" role="img" aria-label="Ближайшие дома и места. Золотая стрелка — ваше положение и направление движения."></canvas></div><span class="minimap-north" aria-hidden="true">С</span><span id="minimap-location">Площадь Ленина</span><div id="minimap-destination" hidden><span id="destination-name" role="status" aria-live="polite"></span><button id="destination-clear" aria-label="Снять выбранную отметку" title="Снять выбранную отметку">×</button></div></aside>
-    <aside class="discovery"><span class="discovery-icon">◇</span><div><small>ПОСМОТРИТЕ ВОКРУГ</small><strong id="discovery-title">Арки, сквер и городские истории</strong><span id="discovery-count">Открываем места…</span></div></aside>
-    <div id="interact" class="interact" hidden><kbd>E</kbd><div><strong id="interact-title"></strong><span>Осмотреть · или нажмите на значок</span></div></div>
-    <div id="tram-panel" class="tram-panel" hidden><span id="tram-status" role="status" aria-live="polite"></span><button id="tram-action"><kbd>E</kbd> <strong id="tram-action-label">Сесть в трамвай</strong></button></div>
-    <button id="touch-menu" aria-label="Меню игры" aria-expanded="false" aria-controls="mobile-options">☰ Меню</button>
-    <div id="touch-controls" aria-label="Сенсорное управление"><div id="move-stick" role="group" aria-label="Джойстик движения: потяните в нужную сторону"><span class="stick-cross" aria-hidden="true">＋</span><span id="stick-knob" aria-hidden="true"></span></div><button id="touch-action" disabled>Подойдите ближе</button></div>
-    <aside id="quest-panel" hidden aria-label="Активное задание"><small id="quest-step"></small><strong id="quest-goal" role="status" aria-live="polite"></strong><div class="quest-bottom"><span><b id="quest-arrow" aria-hidden="true">➜</b> <span id="quest-distance"></span></span><button id="quest-cancel">Отменить</button></div><small id="quest-save" hidden>Прогресс доступен только до закрытия страницы</small></aside>
-    <div id="toast" role="status" aria-live="polite" hidden></div>
-    <footer><div class="controls"><span><kbd>W A S D</kbd> / стрелки — идти</span><span><kbd>Shift</kbd> быстрее</span><span>Колесо — масштаб</span><span><kbd>Q</kbd> ракурс</span><span><kbd>E</kbd> действие / трамвай</span><span><kbd>Esc</kbd> пауза</span></div><div class="credits"><span>Стилизованный фрагмент · окружение уточняется</span><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap</a></div></footer>
-    <div id="loading" class="loading" role="status"><span class="spinner"></span><strong>Открываем площадь…</strong><p>Готовим короткую прогулку</p><button id="retry" hidden>Повторить</button></div>
-    <dialog id="place-dialog" aria-labelledby="card-title"><button id="card-x" class="close" aria-label="Закрыть карточку">×</button><p id="card-eyebrow" class="eyebrow"></p><h2 id="card-title"></h2><p id="card-body" aria-live="polite"></p><div class="observe" id="card-observe-box"><small>ДЕТАЛЬ ДЛЯ НАБЛЮДЕНИЯ</small><p id="card-observe"></p></div><section id="npc-quest" aria-label="Поручение персонажа" hidden></section><div id="card-topics" aria-label="Темы разговора" hidden></div><small id="card-fiction" hidden>Вымышленный персонаж · авторские диалоги</small><a id="card-source" target="_blank" rel="noopener noreferrer" hidden>Источник о месте ↗</a><button id="card-close" class="primary">Продолжить прогулку <span>→</span></button></dialog>
-    <dialog id="journal-dialog" aria-labelledby="journal-title"><button id="journal-x" class="close" aria-label="Закрыть журнал">×</button><p class="eyebrow">ПРОГУЛКИ И ВСТРЕЧИ</p><h2 id="journal-title">Журнал заданий</h2><p id="journal-summary"></p><p class="journal-help" id="journal-help">Бирюзовые точки на мини-карте — персонажи. Выберите нужного — он будет отмечен золотым. Стрелка у края укажет направление, если он далеко.</p><div class="journal-tabs" role="tablist" aria-label="Раздел журнала"><button id="journal-tab-tasks" role="tab" aria-selected="true" aria-controls="journal-content">Поручения</button><button id="journal-tab-badges" role="tab" aria-selected="false" aria-controls="journal-achievements" tabindex="-1">Значки · 0 / 5</button></div><div id="journal-content" role="tabpanel" aria-labelledby="journal-tab-tasks"></div><section id="journal-achievements" role="tabpanel" aria-labelledby="journal-tab-badges" hidden></section><button id="journal-close" class="primary">Продолжить прогулку <span>→</span></button></dialog>
-    <dialog id="pause-dialog" aria-labelledby="pause-title"><p class="eyebrow">ГОРОД ПОДОЖДЁТ</p><h2 id="pause-title">Небольшая пауза</h2><p>Прогуляйтесь вокруг гостиницы и найдите отмеченные места.</p><button id="resume" class="primary">Продолжить <span>→</span></button><button id="pause-reset" class="secondary">Вернуться к началу</button></dialog>
-    <div class="facade-actions" id="mobile-options"><button id="view-toggle" title="Сменить фиксированный ракурс (Q)"><span>↔</span> <span id="view-label">Со стороны площади</span></button><button id="open-facades"><span>▧</span> Конструктор фасадов</button><button id="city-sound" aria-pressed="true">♫ Город: тихий фон</button><button id="quest-total" title="Журнал заданий (J)">Журнал · 0 / 4</button><a id="open-plan" href="./layout-plan.html">⌖ План проспекта</a></div>
-    <dialog id="facade-dialog" aria-labelledby="facade-title">
-      <div class="facade-header"><div><p class="eyebrow">МАСТЕРСКАЯ ПРОСПЕКТА</p><h2 id="facade-title">Конструктор фасадов</h2></div><button id="facade-close" class="close" aria-label="Закрыть конструктор без применения">×</button><label class="building-picker">Дом<select id="facade-building"><option value="mira26">Проспект Мира, 26</option><option value="mira28">Проспект Мира, 28</option></select></label></div>
-      <div class="facade-workspace">
-        <section class="facade-preview" aria-label="Предпросмотр фасада">
-          <div class="preview-caption"><span id="facade-face-caption">ВИД С ПРОСПЕКТА</span><select id="facade-face" aria-label="Фасад для предпросмотра" hidden></select><strong id="facade-subtitle"></strong></div>
-          <canvas id="facade-elevation" width="1000" height="390" aria-label="Предпросмотр главного фасада"></canvas>
-          <div class="facade-context"><div class="mini-isometry"><span>В ИЗОМЕТРИИ</span><canvas id="facade-iso" width="440" height="310" aria-label="Предпросмотр здания в изометрии"></canvas></div><div class="facade-reference"><p id="facade-elevation-note" aria-live="polite"></p><p id="facade-note"></p><div id="facade-sources"></div><small>Фото — ориентир для стилизации. Фасады нарисованы кодом.</small></div></div>
-        </section>
-        <form id="facade-controls" onsubmit="return false">
-          <label class="field">Композиция<select id="facade-template"><option value="theatre-clock">Театр: часы + лиры</option><option value="officers-assembly">Дом офицеров: высокий фасад + зал</option><option value="arcade-wing">Арки + низкое крыло</option><option value="rosette-palace">Симметрия + розетка</option><option value="shopfront-row">Ряд окон + витрины</option><option value="arched-row">Ряд арок + наличники</option><option value="library-mansion">Высокая середина + фронтон</option><option value="panelled-row">Панели + широкий проезд</option><option value="glazed-bays">Остеклённые пролёты + гирлянды</option><option value="corner-turret">Угловая башенка + балкон</option><option value="stepped-gable">Острый аттик + левый балкон</option><option value="five-attics">Пять аттиков + балконы</option><option value="oculus-corners">Круглые окна аттиков + маркизы</option><option value="paired-frontages">Два фасада: белый + коралловый</option><option value="three-storey-balconies">Три этажа + балконы</option><option value="brick-shop-corner">Кирпичный угол + витрины</option><option value="brick-white-frames">Кирпич + белые наличники</option><option value="stucco-niches">Лепнина + ниши первого этажа</option><option value="rose-shop-attics">Розовый фасад + ступенчатые аттики</option><option value="rusticated-balcony">Рустовка + угловой балкон</option><option value="twin-oculus">Два круглых аттика + светлый фасад</option><option value="canopied-balcony">Большой балкон + кованый навес</option><option value="brick-portals">Кирпичные порталы + витрины</option><option value="brick-canopy">Кирпичные аттики + крытый балкон</option><option value="ribbon-modern">Пять этажей + ленточные окна</option><option value="ochre-archway">Охра + арка с балконом</option><option value="cinema-pinnacles">Кинотеатр + шпили</option><option value="grand-hotel">Гранд-отель + пилястры</option><option value="brick-drum">Кирпич + угловая надстройка</option><option value="arched-bow-balconies">Арочный угол + ажурные балконы</option></select></label>
-          <label class="field range-label">Базовая высота этажа <output id="value-floorHeight"></output><input id="facade-floorHeight" type="range" min="3.2" max="5.2" step="0.05"/></label>
-          <label class="field range-label"><span id="facade-bays-label">Окон в боковом крыле</span> <output id="value-wingBays"></output><input id="facade-wingBays" type="range" min="3" max="12" step="1"/></label>
-          <label class="field range-label">Ширина окон <output id="value-windowWidth"></output><input id="facade-windowWidth" type="range" min="0.42" max="0.78" step="0.01"/></label>
-          <label class="field"><span id="facade-shape-label">Окна основного объёма</span><select id="facade-windowShape"><option value="arch">Арочные</option><option value="rect">Прямоугольные</option><option value="segmental">С пологой аркой</option></select></label>
-          <fieldset class="color-fields"><legend>Палитра</legend><label><input id="color-wall" type="color"/>Стены</label><label><input id="color-trim" type="color"/>Лепнина</label><label><input id="color-accent" type="color"/>Акцент</label><label><input id="color-roof" type="color"/>Крыша</label></fieldset>
-          <fieldset class="detail-fields"><legend>Детали</legend><label><input id="detail-balconies" type="checkbox"/><span id="facade-balconies-label">Балконы</span></label><label><input id="detail-awnings" type="checkbox"/><span id="facade-awnings-label">Маркизы</span></label><label><input id="detail-parapet" type="checkbox"/>Ограда крыши</label><label><input id="detail-ornament" type="checkbox"/>Орнамент</label><label><input id="detail-rustication" type="checkbox"/>Рустовка стен</label><label><input id="detail-shutters" type="checkbox"/>Рольставни</label><label><input id="detail-turret" type="checkbox"/><span id="facade-turret-label">Угловая башенка</span></label></fieldset>
-          <button id="facade-default" class="secondary" type="button">↶ Восстановить образец</button>
-        </form>
-      </div>
-      <div class="facade-bottom"><div><p id="facade-status" role="status" aria-live="polite"></p><div class="file-actions"><button id="facade-export">Скачать JSON ↓</button><button id="facade-import">Открыть JSON ↑</button><input id="facade-file" type="file" accept=".json,application/json" hidden/></div></div><button id="facade-apply" class="primary">Применить и посмотреть <span>→</span></button></div>
-    </dialog>
-    <output id="diagnostics" hidden></output>
-    <noscript>Для прогулки включите JavaScript.</noscript>
-  </main>
-  <script type="module" src="./main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#142b35" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>Владикавказ — истории на проспекте</title>
+    <meta name="description" content="Прогуляйтесь по проспекту Мира, познакомьтесь с местным жителем и откройте истории Владикавказа. Интерактивная 3D-прогулка в браузере." />
+    <script type="module" crossorigin src="./assets/game-5E7lu2WA.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-P2Xu9kJm.js">
+    <link rel="modulepreload" crossorigin href="./assets/three-B0k_xZFU.js">
+    <link rel="modulepreload" crossorigin href="./assets/physics-BR_-CEU_.js">
+    <link rel="stylesheet" crossorigin href="./assets/game-BhMVQp5R.css">
+  </head>
+  <body>
+    <main id="app">
+      <canvas id="world" aria-label="Трёхмерный центр Владикавказа по данным OpenStreetMap"></canvas>
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Владикавказ — на стартовый экран">
+          <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="m4 29 10-17 6 9 6-14 10 22H4Z" stroke="currentColor" stroke-width="2"/><path d="m11 29 9-8 8 8" stroke="currentColor" stroke-width="2"/></svg>
+          <span>ВЛАДИКАВКАЗ<small>ИСТОРИИ НА ПРОСПЕКТЕ</small></span>
+        </a>
+        <a class="stage" hidden style="pointer-events:auto;color:inherit;text-decoration:none" href="./prototypes/lenina-2d/index.html"><span></span> ПОПРОБОВАТЬ 2D <b>↗</b></a>
+      </header>
+
+      <section id="menu" class="menu" aria-labelledby="menu-title">
+        <div class="intro">
+          <p class="eyebrow"><span>ВЛАДИКАВКАЗ</span> ЗНАКОМСТВО С ГОРОДОМ</p>
+          <h1 id="menu-title">Площадь Ленина.<br />Город в деталях<span>.</span></h1>
+          <p id="menu-description" class="description">Арки «Александровского», ели и памятник. Посмотрите на площадь с уровня пешехода.</p>
+          <button id="iso-start" class="iso-start" hidden disabled><span><small>НОВЫЙ РАКУРС</small>Изометрия · площадь Ленина</span><span aria-hidden="true">↗</span></button>
+          <button id="start" class="story-primary" disabled><span id="start-label">Готовим площадь…</span><span aria-hidden="true">↗</span></button>
+          <button id="story-start" class="free-start" hidden disabled><span id="story-start-label">Готовим историю…</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <p id="notice" class="notice" role="status" aria-live="polite">Загружаем сцену и физику</p>
+          <div class="controls-guide" aria-label="Управление">
+            <div><span class="keys"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span><span>движение</span></div>
+            <div><span class="keys"><kbd id="camera-control-key">Мышь</kbd></span><span id="camera-control-description">осмотреться</span></div>
+            <div><span class="keys"><kbd>Shift</kbd></span><span>быстрее</span></div>
+            <div><span class="keys"><kbd>Esc</kbd></span><span>пауза</span></div>
+          </div>
+          <div class="world-options"><p class="desktop-note">Клавиатура и мышь</p><label class="city-life-option"><input id="city-life-toggle" type="checkbox" checked disabled />Трамвай и прохожие</label><button id="settings-open" class="settings-open" disabled>Настройки</button></div>
+          <details class="free-options" hidden><summary>Другие места и свободная прогулка</summary><div class="poi-section"><p>ВЫБРАТЬ ТОЧКУ СТАРТА</p><div id="poi-list" class="poi-list" aria-label="Точки старта прогулки"></div><label class="landmark-picker" for="landmark-select"><span>ОРИЕНТИРЫ</span><select id="landmark-select" disabled><option value="">Выбери здание…</option></select></label></div>
+          <a id="photo-overview" class="photo-overview-link" href="./map.html">Открыть карту района <span>Места и улицы ↗</span></a></details>
+        </div>
+        <aside class="episode-card" aria-labelledby="episode-title">
+          <div class="episode-topline"><span>ПЛОЩАДЬ ЛЕНИНА</span><span class="episode-number">01</span></div>
+          <h2 id="episode-title">Архитектура<br/>на уровне глаз.</h2>
+          <p class="episode-lead">Высокие арочные окна, каменные карнизы, еловые ветви и детали городской площади.</p>
+          <div class="episode-meta"><span>СВОБОДНЫЙ ОСМОТР</span><span>ПРОСПЕКТ МИРА</span></div>
+          <div class="episode-route"><span class="route-dot">А</span><div><strong>«Александровский»</strong><small>Арки, колонны и угловой фасад</small></div><span class="route-dot">Б</span><div><strong>Площадь и памятник</strong><small>Ступени, клумбы и хвойные деревья</small></div><span class="route-dot final">↶</span><div><strong>Уличные детали</strong><small>Фонари, ограждения и мощение</small></div></div>
+          <div class="visual-panel" aria-label="Освещение района"><p class="visual-label">СВЕТ · МИРА · ПЛОЩАДЬ · ТЕРЕК</p><div class="visual-modes"><button type="button" data-visual-mode="day" aria-pressed="false">День</button><button type="button" data-visual-mode="sunset" aria-pressed="true">Закат</button><button type="button" data-visual-mode="night" aria-pressed="false">Ночь</button></div><div class="visual-foot"><span>Во время прогулки <kbd>T</kbd></span><button id="visual-showcase" class="visual-showcase" disabled>На проспект Мира ↗</button></div></div>
+          <p id="story-menu-status" class="episode-status" hidden>Одна улица. Два фасада. Ваша первая история.</p>
+          <p id="story-save-note" class="episode-save" hidden>Прогресс сохраняется в этом браузере</p>
+          <details class="extra-tours" hidden><summary>Длинный маршрут к Тереку</summary>        <aside class="tour-menu extra-tour" aria-labelledby="tour-title">
+
+          <p class="tour-eyebrow">ПРОГУЛОЧНЫЙ МАРШРУТ</p><h2 id="tour-title">От площади к Тереку</h2>
+          <p id="tour-summary" class="tour-summary">Готовим маршрут…</p>
+          <p class="tour-instructions">Следуй золотой линии. На отмеченном месте нажми <kbd>E</kbd>, чтобы открыть карточку.</p>
+          <div class="tour-progress-row"><span id="tour-progress-text">Найдено 0 из 6</span><span>ПЕШКОМ</span></div>
+          <progress id="tour-progress" max="6" value="0" aria-label="Посещённые остановки"></progress>
+          <button id="tour-toggle" class="tour-action" disabled>Выбрать маршрут</button>
+          <button id="tour-restart" class="tour-reset" hidden>Начать маршрут заново</button>
+          <details class="tour-checklist"><summary>Остановки маршрута</summary><ol id="tour-stop-list"></ol></details>
+          <p id="tour-save-note" class="tour-save-note">Отметки сохраняются в этом браузере.</p>
+        </aside></details>
+        </aside>
+      </section>
+
+      <div id="crosshair" class="crosshair" hidden aria-hidden="true"></div>
+      <section id="iso-hud" class="iso-hud" hidden aria-label="Управление изометрической прогулкой">
+        <div class="iso-heading"><span>ВЛАДИКАВКАЗ · ПРОГУЛКА</span><strong>Площадь Ленина</strong><small>«Александровский» и жизнь вокруг</small></div>
+        <div class="iso-tools"><button id="iso-zoom-in" aria-label="Приблизить">+</button><button id="iso-zoom-out" aria-label="Отдалить">−</button><button id="iso-reset" title="Вернуться на площадь (R)">На площадь</button><button id="iso-first-person" hidden>От первого лица ↗</button><button id="iso-pause" aria-label="Пауза">Ⅱ</button></div>
+        <div class="iso-orbit" role="group" aria-label="Поворот камеры"><button id="iso-orbit-left" aria-label="Повернуть камеру влево">↶</button><button id="iso-orbit-drag" aria-label="Потяните влево или вправо для вращения камеры" title="Потяните для вращения камеры">✥<small>ВРАЩАТЬ</small></button><button id="iso-orbit-right" aria-label="Повернуть камеру вправо">↷</button></div>
+        <div class="iso-guide"><span><kbd>W A S D</kbd> / стрелки — идти</span><span><kbd>Shift</kbd> — бег</span><span>Колесо — масштаб</span><span><kbd>E</kbd> — осмотреть / трамвай</span><span><kbd>Esc</kbd> — пауза</span></div>
+      </section>
+      <div id="visual-hud" class="visual-hud" hidden><span id="visual-mode-label">ЗАКАТ</span><kbd>T</kbd> свет</div>
+      <aside id="location" class="location" hidden>
+        <span class="location-dot"></span>
+        <div><small>СЕЙЧАС ВЫ ЗДЕСЬ</small><strong id="location-name">Площадь Свободы</strong><span id="location-distance"></span></div>
+      </aside>
+      <aside id="minimap" class="minimap" hidden aria-label="Миникарта текущего места"><div>ЦЕНТР ВЛАДИКАВКАЗА<span>300 м</span></div><canvas id="mini-map-canvas" aria-label="Положение и направление игрока на карте"></canvas></aside>
+      <div id="toast" class="toast" role="status" hidden></div>
+      <aside id="tour-hud" class="tour-hud" hidden aria-label="Текущая цель маршрута"><div class="tour-hud-top"><span id="tour-hud-label">СЛЕДУЮЩАЯ ОСТАНОВКА</span><b id="tour-hud-progress">0 / 6</b></div><div class="tour-hud-main"><svg id="tour-direction" viewBox="0 0 28 28" aria-hidden="true"><path d="M14 3 5 23l9-5 9 5L14 3Z" fill="none" stroke="currentColor" stroke-width="1.7"/></svg><div><strong id="tour-hud-title"></strong><span id="tour-hud-distance"></span></div></div></aside>
+      <div id="tour-interact" class="tour-interact" hidden><kbd>E</kbd><div><strong id="tour-interact-name"></strong><span>Осмотреть место</span></div></div>
+      <footer class="bottombar">
+        <span id="scene-label">ПРОСПЕКТ МИРА · СТИЛИЗОВАННАЯ ПРОГУЛКА</span>
+        <span id="walk-hint" hidden><kbd>R</kbd> к началу <i>·</i> <kbd>Esc</kbd> пауза <i>·</i> <kbd>F3</kbd> показатели <i>·</i> <kbd>O</kbd> настройки</span>
+        <span id="roadmap" hidden><a href="./map.html">КАРТА РАЙОНА ↗</a></span>
+        <a class="osm-credit" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors · ODbL</a>
+      </footer>
+      <output id="diagnostics" class="diagnostics" hidden></output>
+      <dialog id="walk-settings" class="walk-settings" aria-labelledby="settings-title"><h2 id="settings-title">Настройки прогулки</h2><p class="settings-lead">Звук, управление и детализация — под тебя.<br/>Во время настройки город стоит на паузе.</p><fieldset><legend>ЗВУК</legend><label class="setting-row" for="settings-muted"><span>Выключить звук</span><input id="settings-muted" type="checkbox"/></label><label class="setting-row" for="settings-volume"><span>Громкость</span><output id="volume-value" for="settings-volume">80%</output></label><input id="settings-volume" type="range" min="0" max="100" step="1" value="80"/><button id="settings-test" class="settings-test">Проверить звук</button><p id="settings-audio-status" class="settings-status" role="status"></p></fieldset><fieldset><legend>УПРАВЛЕНИЕ</legend><label class="setting-row" for="settings-sensitivity"><span>Чувствительность мыши</span><output id="sensitivity-value" for="settings-sensitivity">1,00×</output></label><input id="settings-sensitivity" type="range" min="0.4" max="1.8" step="0.05" value="1"/></fieldset><fieldset><legend>ГРАФИКА</legend><label class="setting-row" for="settings-quality">Качество</label><select id="settings-quality"><option value="low">Экономное</option><option value="balanced" selected>Сбалансированное</option><option value="high">Высокое</option></select><p class="setting-hint">Экономное снижает разрешение и отключает тени и ореолы света.</p></fieldset><p id="settings-save-note" class="settings-storage"></p><div class="settings-actions"><button id="settings-reset" class="settings-reset">Вернуть по умолчанию</button><button id="settings-close" class="settings-done">Готово</button></div></dialog>
+      <dialog id="place-card" class="place-card" aria-labelledby="place-card-title"><p id="place-card-step" class="tour-eyebrow"></p><h2 id="place-card-title"></h2><p id="place-card-subtitle" class="place-card-subtitle"></p><p id="place-card-body"></p><div class="place-card-observe"><span>ПОСМОТРИ ВОКРУГ</span><p id="place-card-look"></p></div><a id="place-card-source" target="_blank" rel="noopener noreferrer"></a><p id="tour-finished" class="tour-finished" hidden>Маршрут пройден. Все шесть остановок найдены.</p><div class="place-card-actions"><button id="place-card-continue" class="tour-action">Дальше по маршруту</button><button id="place-card-menu" class="tour-reset">К меню</button></div></dialog>
+
+      <aside id="story-hud" class="story-hud" hidden aria-label="Текущее задание">
+        <div class="story-hud-top"><span>ИСТОРИИ НА ПРОСПЕКТЕ</span><b id="story-step">1 / 5</b></div>
+        <div class="story-objective-row"><svg id="story-direction" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 3 5 23l9-5 9 5L14 3Z" stroke="currentColor" stroke-width="1.7"/></svg><div><strong id="story-objective"></strong><small id="story-distance"></small></div></div>
+        <progress id="story-progress" max="5" value="0" aria-label="Прогресс истории"></progress>
+      </aside>
+      <div id="story-interact" class="story-interact" hidden><kbd>E</kbd><span id="story-interact-name">Поговорить</span></div>
+      <button id="tram-interact" class="story-interact" type="button" hidden style="pointer-events:auto;cursor:pointer"><kbd>E</kbd><span id="tram-interact-label">Сесть в трамвай</span></button>
+      <aside id="ride-hud" class="ride-hud" hidden><small>ПРОГУЛОЧНЫЙ ТРАМВАЙ</small><strong>Следующая — «Музей»</strong><span id="ride-time"></span><progress id="ride-progress" max="1" value="0" aria-label="Прогресс поездки"></progress><p>Осматривайтесь мышью · <kbd>E</kbd> выйти · <kbd>Esc</kbd> пауза</p></aside>
+      <dialog id="story-dialog" class="story-dialog" aria-labelledby="story-dialog-title"><button id="story-dialog-close" class="story-dialog-close" aria-label="Закрыть и открыть меню">×</button><p id="story-dialog-eyebrow" class="story-dialog-eyebrow"></p><h2 id="story-dialog-title"></h2><p id="story-dialog-body" class="story-dialog-body"></p><a id="story-dialog-source" class="story-dialog-source" target="_blank" rel="noopener noreferrer" hidden></a><div id="story-dialog-actions" class="story-dialog-actions"></div></dialog>
+      <noscript>Для прогулки включите JavaScript в браузере.</noscript>
+      <div id="import-interact" class="story-interact" hidden><kbd>E</kbd><div><span id="import-interact-name"></span><small>Осмотреть · можно нажать на значок</small></div></div>
+      <dialog id="import-dialog" class="story-dialog imported-dialog" aria-labelledby="import-title"><button id="import-close" class="story-dialog-close" aria-label="Закрыть и открыть меню">×</button><p id="import-eyebrow" class="story-dialog-eyebrow"></p><h2 id="import-title"></h2><p id="import-address" class="import-address" hidden></p><p id="import-description" class="story-dialog-body"></p><a id="import-source" class="story-dialog-source" target="_blank" rel="noopener noreferrer" hidden></a><div class="story-dialog-actions"><button id="import-continue" class="story-choice main-choice">Продолжить прогулку →</button><button id="import-menu" class="story-choice">Открыть меню</button></div></dialog>
+    </main>
+  </body>
 </html>

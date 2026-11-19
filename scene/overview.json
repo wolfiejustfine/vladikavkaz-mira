@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "68b6a342d3137c84e37b99d0e1d95f17c2af1266cce52bec90e927ed49a2ce77",
+  "coordinateSource": "OSM navigation; inverse local transverse Mercator projection",
+  "cameraHeightMethod": "artistic estimate in WGS84 ellipsoid metres; not sampled from Google",
+  "places": [
+    {
+      "id": "square",
+      "label": "Площадь Свободы",
+      "lon": 44.681411220714125,
+      "lat": 43.0246532763555,
+      "targetHeight": 680,
+      "heading": 170,
+      "range": 1150
+    },
+    {
+      "id": "mira",
+      "label": "Проспект Мира",
+      "lon": 44.680375697615,
+      "lat": 43.0306961042282,
+      "targetHeight": 680,
+      "heading": 170,
+      "range": 900
+    },
+    {
+      "id": "park",
+      "label": "Парк Хетагурова",
+      "lon": 44.678695503823356,
+      "lat": 43.02540210314411,
+      "targetHeight": 680,
+      "heading": 170,
+      "range": 900
+    },
+    {
+      "id": "river",
+      "label": "Набережная Терека",
+      "lon": 44.677438600674904,
+      "lat": 43.024990295814085,
+      "targetHeight": 680,
+      "heading": 100,
+      "range": 900
+    }
+  ]
+}
